@@ -1,0 +1,35 @@
+site:
+  title: Netbeheer Nederland Documentation (New)
+  url: https://netbeheer-nederland.github.io/docs-new
+content:
+  branches:  # Disable default branch filter. See: https://gitlab.com/antora/antora/-/issues/268
+  sources:
+  - url: .
+    branches: HEAD
+    start_path: ./root_component
+  - url: https://github.com/Netbeheer-Nederland/dp-energy-hubs
+    tags: v*.*.*
+asciidoc:
+  attributes:
+    page-pagination: ''
+    experimental: ''
+    kroki-fetch-diagram: true
+    kroki-default-format: svg@
+    kroki-server-url: http://fruit.ritger.nl:9000
+  extensions:
+  - asciidoctor-kroki
+output:
+  clean: true
+  dir: ./docs
+urls:
+  latest_version_segment: latest
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: ./supplemental-ui
+antora:
+  extensions:
+  - require: '@antora/lunr-extension'
+  - require: '@antora/collector-extension'
+  - require: './generate-content.js'
