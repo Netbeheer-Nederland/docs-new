@@ -31,7 +31,7 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v3
       - name: Generate site
-        run: npx antora --fetch antora-playbook.yml
+        run: antora --fetch antora-playbook.yml
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
