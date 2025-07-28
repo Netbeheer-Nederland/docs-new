@@ -19,7 +19,7 @@ jobs:
         shell: bash
     runs-on: ubuntu-latest
     container:
-      image: netbeheer-nederland/env-data-modeling:latest
+      image: ghcr.io/netbeheer-nederland/env-data-modeling:latest
       ports:
         - 8080
     environment:
