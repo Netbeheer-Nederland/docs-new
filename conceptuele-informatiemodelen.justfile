@@ -1,22 +1,17 @@
+#set dotenv-required
+#set dotenv-load
 set shell := ["bash", "-uc"]
 set windows-shell := ["bash", "-uc"]
 
 _default:
     @just --list --unsorted --justfile {{justfile()}}
 
-# Generate all documentation artifacts
+# Build the project
 [group("project")]
-build type='all': clean #generate-documentation
-    #!/bin/env bash
-    if kkb
-    if [ -d {{ type }} ]; then
-        echo CORRECT; \
-    else \
-        echo FALSE;
-    fi
-    echo
-    echo "All project artifacts have been generated and post-processed, and can found in: artifacts/"
-    echo
+build: clean generate-documentation
+    @echo
+    @echo "All project artifacts have been generated and post-processed, and can found in: artifacts/"
+    @echo
 
 # Clean up the output directory
 [group("project")]

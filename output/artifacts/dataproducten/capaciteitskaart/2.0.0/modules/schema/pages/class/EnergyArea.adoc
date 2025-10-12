@@ -1,0 +1,627 @@
+= `EnergyArea`
+:toclevels: 4
+
+
++++Describes an area having energy production or consumption. Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis. Often the energy area can be linked to both measured and forecast load levels.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| `cim:EnergyArea`
+
+
+| CIM standard (perspective)
+| IEC61970 (Grid)
+
+
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://nbnl.info/energiesysteembeheer/term/voedingsgebied[`esb:voedingsgebied`]
+
+
+
+!===
+
+
+
+|===
+
+== Class hierarchy
+* xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+** *`EnergyArea`*
+
+
+== Slots
+
+
+
+.Associated classes
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+EnergyArea {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+Work {
+  style {
+    fill: "#d1e7c2"
+    shadow: true
+  }
+}
+
+
+
+AreaCapacity {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+PostcodeArea {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+Name {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+
+EnergyArea -> Work: works
+
+
+EnergyArea -> AreaCapacity: area_capacity
+
+
+EnergyArea -> PostcodeArea: postcode_areas
+
+
+EnergyArea -> Name: names
+
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
+
+[cols="1,1,2,1",width=100%]
+|===
+| Name | Type | Description | Inherited from
+
+| <<area_capacity,`area_capacity`>>
+//| [[slots_table.area_capacity]]<<area_capacity,`area_capacity`>>
+| 1..* +
+xref::class/AreaCapacity.adoc[`AreaCapacity`]
+| _n/a_
+| _n/a_
+
+| <<congestion_url,`congestion_url`>>
+//| [[slots_table.congestion_url]]<<congestion_url,`congestion_url`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++URL for additional (congestion) information for this EnergyArea.+++
+| _n/a_
+
+| <<demand_alleviation_year,`demand_alleviation_year`>>
+//| [[slots_table.demand_alleviation_year]]<<demand_alleviation_year,`demand_alleviation_year`>>
+| 0..1 +
+https://w3id.org/linkml/Integer[`integer`]
+| +++Year (e.g. "2028") from which any capacity issues have been alleviated for the EnergyArea.+++
+| _n/a_
+
+| <<demand_energy_area_short_code,`demand_energy_area_short_code`>>
+//| [[slots_table.demand_energy_area_short_code]]<<demand_energy_area_short_code,`demand_energy_area_short_code`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
+| _n/a_
+
+| <<generation_alleviation_year,`generation_alleviation_year`>>
+//| [[slots_table.generation_alleviation_year]]<<generation_alleviation_year,`generation_alleviation_year`>>
+| 0..1 +
+https://w3id.org/linkml/Integer[`integer`]
+| +++Year (e.g. "2028") from which any capacity issues have been alleviated for the EnergyArea.+++
+| _n/a_
+
+| <<generation_energy_area_short_code,`generation_energy_area_short_code`>>
+//| [[slots_table.generation_energy_area_short_code]]<<generation_energy_area_short_code,`generation_energy_area_short_code`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
+| _n/a_
+
+| <<postcode_areas,`postcode_areas`>>
+//| [[slots_table.postcode_areas]]<<postcode_areas,`postcode_areas`>>
+| 0..* +
+xref::class/PostcodeArea.adoc[`PostcodeArea`]
+| +++Postcode Areas serviced by this EnergyArea.+++
+| _n/a_
+
+| <<short_code,`short_code`>>
+//| [[slots_table.short_code]]<<short_code,`short_code`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++Short code name for EnergyArea. This is the "Uniek ID voedingsgebied" in the previous implementation.+++
+| _n/a_
+
+| <<type,`type`>>
+//| [[slots_table.type]]<<type,`type`>>
+| 0..1 +
+xref::enumeration/EnergyAreaKind.adoc[`EnergyAreaKind`]
+| +++Type of EnergyArea, either a regular energy area, or congestion area. Only the TSO dataset can define congestion areas.+++
+| _n/a_
+
+| <<works,`works`>>
+//| [[slots_table.works]]<<works,`works`>>
+| 0..* +
+xref::class/Work.adoc[`Work`]
+| +++All the works performed for this EnergyArea.+++
+| _n/a_
+
+| <<description,`description`>>
+//| [[slots_table.description]]<<description,`description`>>
+| 0..* +
+https://w3id.org/linkml/String[`string`]
+| +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+| <<m_rid,`m_rid`>>
+//| [[slots_table.m_rid]]<<m_rid,`m_rid`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is...+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+| <<names,`names`>>
+//| [[slots_table.names]]<<names,`names`>>
+| 0..* +
+xref::class/Name.adoc[`Name`]
+| +++All names of this identified object.+++
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+|===
+
+'''
+
+
+//[discrete]
+[#area_capacity]
+=== `area_capacity`
+
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.AreaCapacity[`capkrt:EnergyArea.AreaCapacity`]
+| Cardinality
+| 1..*
+| Type
+| xref::class/AreaCapacity.adoc[`AreaCapacity`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.area_capacity,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#congestion_url]
+=== `congestion_url`
++++URL for additional (congestion) information for this EnergyArea.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.congestionURL[`capkrt:EnergyArea.congestionURL`]
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.congestion_url,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#demand_alleviation_year]
+=== `demand_alleviation_year`
++++Year (e.g. "2028") from which any capacity issues have been alleviated for the EnergyArea.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.demandAlleviationYear[`capkrt:EnergyArea.demandAlleviationYear`]
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/Integer[`integer`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.demand_alleviation_year,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#demand_energy_area_short_code]
+=== `demand_energy_area_short_code`
++++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.demandEnergyAreaShortCode[`capkrt:EnergyArea.demandEnergyAreaShortCode`]
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.demand_energy_area_short_code,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#description]
+=== `description`
++++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy. This is the "Herkenbare naam voedingsgebied" in the previous implementation.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.description`
+| Cardinality
+| 0..*
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.description,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#generation_alleviation_year]
+=== `generation_alleviation_year`
++++Year (e.g. "2028") from which any capacity issues have been alleviated for the EnergyArea.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.generationAlleviationYear[`capkrt:EnergyArea.generationAlleviationYear`]
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/Integer[`integer`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.generation_alleviation_year,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#generation_energy_area_short_code]
+=== `generation_energy_area_short_code`
++++Reference to a TenneT EnergyArea which is defined as a congestion area. Used specifically in the TSO dataset.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.generationEnergyAreaShortCode[`capkrt:EnergyArea.generationEnergyAreaShortCode`]
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.generation_energy_area_short_code,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#m_rid]
+=== `m_rid`
++++Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended. For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.mRID`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.m_rid,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#names]
+=== `names`
++++All names of this identified object.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.Names`
+| Cardinality
+| 0..*
+| Type
+| xref::class/Name.adoc[`Name`]
+
+| Inherited from
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.names,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#postcode_areas]
+=== `postcode_areas`
++++Postcode Areas serviced by this EnergyArea.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.PostcodeAreas[`capkrt:EnergyArea.PostcodeAreas`]
+| Cardinality
+| 0..*
+| Type
+| xref::class/PostcodeArea.adoc[`PostcodeArea`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.postcode_areas,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#short_code]
+=== `short_code`
++++Short code name for EnergyArea. This is the "Uniek ID voedingsgebied" in the previous implementation.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.shortCode[`capkrt:EnergyArea.shortCode`]
+| Cardinality
+| 1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.short_code,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#type]
+=== `type`
++++Type of EnergyArea, either a regular energy area, or congestion area. Only the TSO dataset can define congestion areas.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.type[`capkrt:EnergyArea.type`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/EnergyAreaKind.adoc[`EnergyAreaKind`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.type,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#works]
+=== `works`
++++All the works performed for this EnergyArea.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/EnergyArea.Works[`capkrt:EnergyArea.Works`]
+| Cardinality
+| 0..*
+| Type
+| xref::class/Work.adoc[`Work`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.works,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`] | xref::class/SubGeographicalRegion.adoc#energy_areas[`energy_areas`]
+
+
+|===
+

@@ -1,0 +1,64 @@
+= `RAGKind`
+:toclevels: 4
+
+
++++Traffic light colors coding scheme for categorising status.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Enumeration
+
+| URI
+| https://nbnl.info/capaciteitskaart/term/RAGKind[`capkrt:RAGKind`]
+
+
+| CIM standard (perspective)
+| IEC61970 (Grid)
+
+
+
+|===
+
+== Values
+
+[cols="1,1,5",width=100%]
+|===
+| Value | URI | Description
+
+| `amber`
+| https://nbnl.info/capaciteitskaart/term/RAGKind.Amber[`capkrt:RAGKind.Amber`]
+| +++Energy Area is being investigated, with queue (Voedingsgebied is in onderzoek met wachtrij).+++
+
+| `red`
+| https://nbnl.info/capaciteitskaart/term/RAGKind.Red[`capkrt:RAGKind.Red`]
+| +++Shortage of transport capacity, with queue (Tekort aan Transportcapaciteit met wachtrij).+++
+
+| `transparant`
+| https://nbnl.info/capaciteitskaart/term/RAGKind.Transparant[`capkrt:RAGKind.Transparant`]
+| +++Transport capacity is available, without queue ("Transportcapaciteit beschikbaar zonder wachtrij").+++
+
+| `yellow`
+| https://nbnl.info/capaciteitskaart/term/RAGKind.Yellow[`capkrt:RAGKind.Yellow`]
+| +++Limited availability of transport capacity, without queue (Transportcapaciteit beperkt beschikbaar zonder wachtrij).+++
+|===
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/AreaCapacity.adoc[`AreaCapacity`] | xref::class/AreaCapacity.adoc#generation_constraint[`generation_constraint`]
+
+
+
+| xref::class/PostcodeArea.adoc[`PostcodeArea`] | xref::class/PostcodeArea.adoc#generation_constraint[`generation_constraint`]
+
+
+|===
+

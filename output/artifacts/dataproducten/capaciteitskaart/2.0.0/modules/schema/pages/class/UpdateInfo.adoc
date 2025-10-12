@@ -1,0 +1,120 @@
+= `UpdateInfo`
+:toclevels: 4
+
+
++++Specific type of information that was updated for this dataset.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| https://nbnl.info/capaciteitskaart/term/UpdateInfo[`capkrt:UpdateInfo`]
+
+
+
+
+|===
+
+== Class hierarchy
+* *`UpdateInfo`*
+
+
+== Slots
+
+
+
+
+[cols="1,1,2,1",width=100%]
+|===
+| Name | Type | Description | Inherited from
+
+| <<date,`date`>>
+//| [[slots_table.date]]<<date,`date`>>
+| 1 +
+https://w3id.org/linkml/Date[`date`]
+| +++Date of the update.+++
+| _n/a_
+
+| <<type,`type`>>
+//| [[slots_table.type]]<<type,`type`>>
+| 1 +
+xref::enumeration/UpdateInfoKind.adoc[`UpdateInfoKind`]
+| +++Type of the update.+++
+| _n/a_
+|===
+
+'''
+
+
+//[discrete]
+[#date]
+=== `date`
++++Date of the update.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:UpdateInfo.date`
+| Cardinality
+| 1
+| Type
+| https://w3id.org/linkml/Date[`date`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.date,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#type]
+=== `type`
++++Type of the update.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| https://nbnl.info/capaciteitskaart/term/UpdateInfo.type[`capkrt:UpdateInfo.type`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/UpdateInfoKind.adoc[`UpdateInfoKind`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.type,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/HeatmapDataSet.adoc[`HeatmapDataSet`] | xref::class/HeatmapDataSet.adoc#updated[`updated`]
+
+
+|===
+

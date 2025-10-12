@@ -18,6 +18,7 @@ prefixes:
   cim: https://cim.ucaiug.io/ns#
   esb: https://nbnl.info/energiesysteembeheer/term/
   capkrt: https://nbnl.info/capaciteitskaart/term/
+  skos: http://www.w3.org/2004/02/skos/core#
   # cimnl: https://nbnl.info/cim-nl/term/
   # nl: http://iec.ch/TC57/CIM100-Netherlands#
 types:
