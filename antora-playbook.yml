@@ -1,0 +1,29 @@
+site:
+  title: NBNL -- Publicaties
+  url: https://netbeheer-nederland.github.io/docs-new
+content:
+  sources:
+  - url: .
+    #start_paths: [output/artifacts/conceptuele-informatiemodellen/aansluitingenregister, output/artifacts/dataproducten/capaciteitskaart]
+    start_paths: output/artifacts/*/*/*
+asciidoc:
+  attributes:
+    page-pagination: ''
+    experimental: ''
+    kroki-fetch-diagram: true  # Ensure renderng is done server-sided so the images are served statically.
+    kroki-default-format: svg@
+    kroki-server-url: http://fruit.ritger.nl:9000
+  extensions:
+    - asciidoctor-kroki
+    - '@djencks/asciidoctor-mathjax'
+output:
+  clean: true
+  dir: output/docs
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: supplemental-ui
+antora:
+  extensions:
+  - require: '@antora/lunr-extension'

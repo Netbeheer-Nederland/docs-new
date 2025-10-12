@@ -1,0 +1,19 @@
+# Vim
+.netrwhist
+*.swp
+*~
+
+# Node.js
+/node_modules/
+
+# VS Code
+/.vscode/
+
+# Antora
+/antora-playbook-local*.yml
+
+# Build artefacts
+/docs/
+
+# IntelliJ IDEA
+/.idea/

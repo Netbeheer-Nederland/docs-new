@@ -1,0 +1,24 @@
+* Metamodels
+** xref:dp-dataproduct::index.adoc[]
+** xref:im-archimate-metamodel::index.adoc[]
+* Guidelines
+** xref:doc-modeling-guidelines::index.adoc[]
+** xref:doc-design::index.adoc[]
+** xref:doc-uri-policy::index.adoc[]
+** xref:doc-team-semantiek:conceptual-models:index.adoc[]
+** xref:doc-team-semantiek:projects:index.adoc[]
+* Data Products
+** xref:dp-buurtnet::index.adoc[]
+** xref:dp-capaciteitskaart-groengas::index.adoc[]
+** xref:dp-capaciteitskaart::index.adoc[]
+** xref:dp-capaciteitskaart-ls::index.adoc[]
+** xref:dp-meetdata::index.adoc[]
+** xref:dp-nbnl-equipment::index.adoc[]
+** xref:dp-netbewust-laden::index.adoc[]
+** xref:dp-netburen::index.adoc[]
+** xref:dp-stationsmeetdata::index.adoc[]
+** xref:dp-transitietechnieken::index.adoc[]
+* xref:conceptuele-informatiemodellen::index.adoc[Conceptual Models]
+* NBNL Profile Group
+** xref:im-object::object_register.adoc[]
+** xref:im-nbnl-equipment::index.adoc[]
