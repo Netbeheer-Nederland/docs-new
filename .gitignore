@@ -13,7 +13,7 @@
 /antora-playbook-local*.yml
 
 # Build artefacts
-/docs/
+/output/
 
 # IntelliJ IDEA
 /.idea/
