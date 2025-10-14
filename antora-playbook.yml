@@ -1,5 +1,5 @@
 site:
-  title: NBNL -- Publicaties
+  title: NBNL Modellen
   url: https://netbeheer-nederland.github.io/docs-new
 content:
   sources:
@@ -19,6 +19,9 @@ asciidoc:
 output:
   clean: true
   dir: output/docs
+urls:
+  latest_version_segment: ''
+  latest_version_segment_strategy: replace
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
