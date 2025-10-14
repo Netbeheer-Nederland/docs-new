@@ -27,6 +27,8 @@ function generate_antora_component_version {
         $component_version_dir_out/modules/schema \
         --relations-diagrams
     echo '- modules/schema/nav.adoc' >> $component_version_dir_out/antora.yml
+    echo
+    cp $component_version_dir_src/models/$COMPONENT_NAME.linkml.yml $component_version_dir_out/modules/schema/attachments/
     echo … OK.
     echo
 }
