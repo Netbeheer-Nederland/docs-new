@@ -179,3 +179,7 @@ License`, under ©Crown copyright 2024.
 * xref:schema:attachment$schemas/json_schema/dp_capaciteitskaart.json_schema.json[JSON schema]
 * xref:schema:attachment$examples/dp_capaciteitskaart_dso.example.json[Example DSO instance data]
 * xref:schema:attachment$examples/dp_capaciteitskaart_tso.example.json[Example TSO instance data]
+
+== Index
+
+include::schema:partial$index.adoc[]
