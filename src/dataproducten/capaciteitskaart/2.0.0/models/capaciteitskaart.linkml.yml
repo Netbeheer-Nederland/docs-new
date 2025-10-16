@@ -1,12 +1,12 @@
+id: https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/schema  # Asset URI.
 name: capaciteitskaart
 description: |-
-  Information models for the Capaciteitskaart.
+  CIM application profile of NBNL data product "Capaciteitskaart".
 title: Capaciteitskaart
-id: https://nbnl.info/capaciteitskaart/v2/schema
-# id: https://github.com/Netbeheer-Nederland/dp-capaciteitskaart/tree/v2.0.0/information_models/dp_capaciteitskaart.schema.linkml.yml
-# id: https://github.com/Netbeheer-Nederland/dp-capaciteitskaart/blob/bceb8fdecf2db1f7d7b353d7095b9c9a0aaeb0fd/information_models/dp_capaciteitskaart.schema.linkml.yml
 version: 2.0.0
-source: https://nbnl.info/capaciteitskaart
+annotations:
+  is_version_of: https://modellen.netbeheernederland.nl/capaciteitskaart
+source_file: https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/schema/capaciteitskaart.linkml.yml  # Asset distribution access URL.
 license: https://www.apache.org/licenses/LICENSE-2.0.txt
 imports:
   - linkml:types
