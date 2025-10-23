@@ -1,18 +1,2 @@
 name: aansluitingenregister
 version: 1.1.2
-ext:
-  collection: register
-  collector:  # This will be written by some simple extension.
-    - run:
-        command: scripts/generate-register.sh
-        env:
-        - name: NAME
-          value: ${{origin.descriptor.name}}
-        - name: SRC
-          value: ${{origin.startPath}}
-        - name: OUT
-          value: output/artifacts
-        - name: TEMPLATES_DIR
-          value: scripts/conceptuele-informatiemodellen-templates
-    - scan:
-        dir: output/artifacts
