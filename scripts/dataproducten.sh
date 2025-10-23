@@ -21,14 +21,16 @@ function generate_antora_component_version {
     mkdir -p $component_version_dir_out
     cp -r $component_version_dir_src/documentation/* $component_version_dir_out
 
-    mkdir -p $component_version_dir_out/modules/schema
-    uv run python -m linkml_asciidoc_generator.main \
-        $component_version_dir_src/models/$COMPONENT_NAME.linkml.yml \
-        $component_version_dir_out/modules/schema \
-        --relations-diagrams
-    echo '- modules/schema/nav.adoc' >> $component_version_dir_out/antora.yml
-    echo
-    cp $component_version_dir_src/models/$COMPONENT_NAME.linkml.yml $component_version_dir_out/modules/schema/attachments/
+    if [ "$version" != "_" ]; then
+        mkdir -p $component_version_dir_out/modules/schema
+        uv run python -m linkml_asciidoc_generator.main \
+            $component_version_dir_src/models/$COMPONENT_NAME.linkml.yml \
+            $component_version_dir_out/modules/schema \
+            --relations-diagrams
+        echo '- modules/schema/nav.adoc' >> $component_version_dir_out/antora.yml
+        echo
+        cp $component_version_dir_src/models/$COMPONENT_NAME.linkml.yml $component_version_dir_out/modules/schema/attachments/
+    fi
     echo … OK.
     echo
 }

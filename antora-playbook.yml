@@ -4,7 +4,6 @@ site:
 content:
   sources:
   - url: .
-    #start_paths: [output/artifacts/conceptuele-informatiemodellen/aansluitingenregister, output/artifacts/dataproducten/capaciteitskaart]
     start_paths: output/artifacts/*/*/*
 asciidoc:
   attributes:

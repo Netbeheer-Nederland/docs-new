@@ -24,6 +24,7 @@ echo
 
 # Generate documentation artifacts
 
+#for type in dataproducten ; do
 for type in dataproducten conceptuele-informatiemodellen ; do
     for component_dir in $SRC_DIR/$type/* ; do
         component=$(basename $component_dir)

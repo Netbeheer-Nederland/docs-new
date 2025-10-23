@@ -17,7 +17,6 @@ prefixes:
   unit: http://qudt.org/vocab/unit/
   cim: https://cim.ucaiug.io/ns#
   esb: https://nbnl.info/energiesysteembeheer/term/
-  capkrt: https://nbnl.info/capaciteitskaart/term/
   skos: http://www.w3.org/2004/02/skos/core#
   # cimnl: https://nbnl.info/cim-nl/term/
   # nl: http://iec.ch/TC57/CIM100-Netherlands#
@@ -35,61 +34,46 @@ enums:
   EnergyAreaKind:
     description: Kind of EnergyAdea. Defines the energy area as a regular
       energy area, or congestion area.
-    enum_uri: capkrt:EnergyAreaKind
     permissible_values:
       energy_area:
         description: Energy area.
-        meaning: capkrt:EnergyAreaKind.energyArea
       congestion_area:
         description: Congestion area.
-        meaning: capkrt:EnergyAreaKind.congestionArea
   UpdateInfoKind:
     description: Type of information that has been updated as part of this
       dataset.
-    enum_uri: capkrt:UpdateInfoKind
     permissible_values:
       KI:
         description: Kleurinformatie.
-        meaning: capkrt:UpdateInfoKind.KI
       ATC:
         description: Aanwezige transportcapaciteit.
-        meaning: capkrt:UpdateInfoKind.ATC
       BTC:
         description: Benodigde transportcapaciteit.
-        meaning: capkrt:UpdateInfoKind.BTC
       WR:
         description: Wachtrij.
-        meaning: capkrt:UpdateInfoKind.WR
       NU:
         description: Netuitbreidingen.
-        meaning: capkrt:UpdateInfoKind.NU
       JC:
         description: Jaartal congestie opgelost.
-        meaning: capkrt:UpdateInfoKind.JC
   RAGKind:
     description: Traffic light colors coding scheme for categorising status.
-    enum_uri: capkrt:RAGKind
     permissible_values:
       transparant:
         description:
           Transport capacity is available, without queue ("Transportcapaciteit
           beschikbaar zonder wachtrij").
-        meaning: capkrt:RAGKind.Transparant
       red:
         description:
           Shortage of transport capacity, with queue (Tekort aan Transportcapaciteit
           met wachtrij).
-        meaning: capkrt:RAGKind.Red
       amber:
         description:
           Energy Area is being investigated, with queue (Voedingsgebied
           is in onderzoek met wachtrij).
-        meaning: capkrt:RAGKind.Amber
       yellow:
         description:
           Limited availability of transport capacity, without queue (Transportcapaciteit
           beperkt beschikbaar zonder wachtrij).
-        meaning: capkrt:RAGKind.Yellow
   WorkStatusKind:
     description: Kind of status, specific to work.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968
@@ -151,18 +135,15 @@ classes:
         required: true
       updated:
         description: Type of information that was updated for this dataset.
-        slot_uri: capkrt:HeatmapDataSet.updated
         range: UpdateInfo
         required: false
         multivalued: true
       geographical_regions:
         description: All instances of GeographicalRegions
-        slot_uri: capkrt:HeatmapDataSet.GeographicalRegions
         range: GeographicalRegion
         multivalued: true
         required: true
         inlined_as_list: true
-    class_uri: capkrt:HeatmapDataSet
     tree_root: true
   GeographicalRegion:
     description: "A geographical region of a power system network model."
@@ -204,13 +185,11 @@ classes:
         description:
           Short code name for EnergyArea. This is the "Uniek ID voedingsgebied"
           in the previous implementation.
-        slot_uri: capkrt:EnergyArea.shortCode
         required: true
         multivalued: false
       type:
         description: Type of EnergyArea, either a regular energy area, or
           congestion area. Only the TSO dataset can define congestion areas.
-        slot_uri: capkrt:EnergyArea.type
         range: EnergyAreaKind
         required: false
         multivalued: false
@@ -218,14 +197,12 @@ classes:
         description:
           Year (e.g. "2028") from which any capacity issues have been alleviated
           for the EnergyArea.
-        slot_uri: capkrt:EnergyArea.demandAlleviationYear
         range: integer
         required: false
         multivalued: false
       demand_energy_area_short_code:
         description: Reference to a TenneT EnergyArea which is defined as a
           congestion area. Used specifically in the TSO dataset.
-        slot_uri: capkrt:EnergyArea.demandEnergyAreaShortCode
         range: string
         required: false
         multivalued: false
@@ -233,32 +210,27 @@ classes:
         description:
           Year (e.g. "2028") from which any capacity issues have been alleviated
           for the EnergyArea.
-        slot_uri: capkrt:EnergyArea.generationAlleviationYear
         range: integer
         required: false
         multivalued: false
       generation_energy_area_short_code:
         description: Reference to a TenneT EnergyArea which is defined as a
           congestion area. Used specifically in the TSO dataset.
-        slot_uri: capkrt:EnergyArea.generationEnergyAreaShortCode
         range: string
         required: false
         multivalued: false
       works:
         description: All the works performed for this EnergyArea.
-        slot_uri: capkrt:EnergyArea.Works
         multivalued: true
         range: Work
         required: false
       area_capacity:
         description:
-        slot_uri: capkrt:EnergyArea.AreaCapacity
         multivalued: true
         range: AreaCapacity
         required: true
       postcode_areas:
         description: Postcode Areas serviced by this EnergyArea.
-        slot_uri: capkrt:EnergyArea.PostcodeAreas
         multivalued: true
         range: PostcodeArea
         required: false
@@ -266,7 +238,6 @@ classes:
         description: URL for additional (congestion) information for this
           EnergyArea.
         range: string
-        slot_uri: capkrt:EnergyArea.congestionURL
         required: false
         multivalued: false
     class_uri: cim:EnergyArea
@@ -277,7 +248,6 @@ classes:
       capacity_interval:
         description: Capacity information date and time interval. Allows
           providing multiple points in time to provide capacity information.
-        slot_uri: capkrt:AreaCapacity.capacity_interval
         range: DateTimeInterval
         required: true
         multivalued: false
@@ -286,7 +256,6 @@ classes:
           capacity increases in queue. This is the "Aantal unieke
           transportverzoeken in een wachtrij - afname" in the previous
           implementation.
-        slot_uri: capkrt:EnergyArea.demandRequestsInQueue
         range: integer
         required: false
         multivalued: false
@@ -295,7 +264,6 @@ classes:
         description: The contract value of demand requests not yet granted.
           This is the "Wachtrij in capaciteit - afname" in the previous
           implementation.
-        slot_uri: capkrt:EnergyArea.demandCapacityInQueue
         range: MegaW
         required: false
         multivalued: false
@@ -304,7 +272,6 @@ classes:
         description: Sum of all demand (in MW) currently quoted at the
           EnergyArea.  This is the "Benodigde transportcapaciteit (in MW)
           afname" in the previous implementation.
-        slot_uri: capkrt:EnergyArea.demandQuotedCapacity
         range: MegaW
         required: false
         multivalued: false
@@ -315,7 +282,6 @@ classes:
           available to a connecting party. This is the "Aanwezige
           transportcapaciteit (in MW) afname huidige jaar" in the previous
           implementation.
-        slot_uri: capkrt:EnergyArea.demandAvailableCapacity
         range: MegaW
         required: false
         multivalued: false
@@ -324,14 +290,12 @@ classes:
         description:
           Sum of all demand (in MW) forecast for the current year at the
           EnergyArea.
-        slot_uri: capkrt:EnergyArea.demandForecastCapacity
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       demand_tso_limit:
         description: TSO EnergyArea limit for demand (in MW).
-        slot_uri: capkrt:EnergyArea.demandTSOLimit
         range: MegaW
         required: false
         multivalued: false
@@ -342,7 +306,6 @@ classes:
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. Only specify this attribute if no
           PostcodeArea-s are provided.
-        slot_uri: capkrt:EnergyArea.demandConstraint
         range: RAGKind
         required: false
         multivalued: false
@@ -351,7 +314,6 @@ classes:
           Number of generation requests for new grid connections and capacity
           increases in queue. This is the "Aantal unieke transportverzoeken in een
           wachtrij - invoeding" in the previous implementation.
-        slot_uri: capkrt:EnergyArea.generationRequestsInQueue
         range: integer
         required: false
         multivalued: false
@@ -360,7 +322,6 @@ classes:
         description:
           The contract value of generation requests not yet granted. This
           is the "Wachtrij in capaciteit - invoeding" in the previous implementation.
-        slot_uri: capkrt:EnergyArea.generationCapacityInQueue
         range: MegaW
         required: false
         multivalued: false
@@ -370,7 +331,6 @@ classes:
           Sum of all currently quoted generation (in MW) at the EnergyArea.
           This is the "Benodigde transportcapaciteit (in MW) invoeding" in the previous
           implementation.
-        slot_uri: capkrt:EnergyArea.generationQuotedCapacity
         range: MegaW
         required: false
         multivalued: false
@@ -380,7 +340,6 @@ classes:
           Available generation capacity (in MW) at the EnergyArea. This
           is the "Aanwezige transportcapaciteit (in MW) invoeding huidige jaar" in
           the previous implementation.
-        slot_uri: capkrt:EnergyArea.generationAvailableCapacity
         range: MegaW
         required: false
         multivalued: false
@@ -389,14 +348,12 @@ classes:
         description:
           Sum of all forecast generation (in MW) for the current year at
           the EnergyArea.
-        slot_uri: capkrt:EnergyArea.generationForecastCapacity
         range: MegaW
         required: false
         multivalued: false
         minimum_value: 0
       generation_tso_limit:
         description: TSO EnergyArea limit for generation (in MW).
-        slot_uri: capkrt:EnergyArea.generationTSOLimit
         range: MegaW
         required: false
         multivalued: false
@@ -407,11 +364,9 @@ classes:
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. Only specify this attribute if no
           PostcodeArea-s are provided.
-        slot_uri: capkrt:EnergyArea.generationConstraint
         range: RAGKind
         required: false
         multivalued: false
-    class_uri: capkrt:AreaCapacity
   PostcodeArea:
     description:
       A geographic region that is defined by the initial letters or digits
@@ -423,14 +378,12 @@ classes:
           Identifier for the postcode area. Contain four (4) numbers, followed
           by two (2) letters, uppercase. No spaces between the numbers and letters,
           i.e. "1234AB".
-        slot_uri: capkrt:PostcodeArea.postcode
         required: true
         multivalued: false
       substation_short_code:
         description: TenneT substation ("Onderstation") which feeds this
           PostcodeArea. Use the "ck.EnergyArea.short_code" from the TenneT
           dataset to relate the PostcodeArea.
-        slot_uri: capkrt:PostcodeArea.substationShortCode
         required: false
         multivalued: false
       demand_constraint:
@@ -439,7 +392,6 @@ classes:
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. This is the "Kleurcodering van het
           postcodegebied voor afname" in the previous implementation.
-        slot_uri: capkrt:PostcodeArea.demandConstraint
         range: RAGKind
         required: true
         multivalued: false
@@ -449,11 +401,9 @@ classes:
           A utility should provide details on how this RAG status is calculated as
           part of the accompanying documentation. This is the "Kleurcodering van het
           postcodegebied voor opwek" in the previous implementation.
-        slot_uri: capkrt:PostcodeArea.generationConstraint
         range: RAGKind
         required: true
         multivalued: false
-    class_uri: capkrt:PostcodeArea
   Work:
     description:
       Document used to request, initiate, track and record work. Use the
@@ -466,7 +416,6 @@ classes:
         description:
           Name of the project this work belongs to. This is the "Projectnaam"
           in the previous implementation.
-        slot_uri: capkrt:Work.projectName
         range: string
         required: true
         multivalued: false
@@ -474,7 +423,6 @@ classes:
         description: URL to the project web page or portal where the project
           information can be found.
         range: string
-        slot_uri: capkrt:Work.projectURL
         required: false
         multivalued: false
     class_uri: cim:Work
@@ -563,7 +511,6 @@ classes:
       quarter:
         description: Quarter indicator for when this Work is completed. Use in
           combination with capkrt:DateTimeInterval.year.
-        slot_uri: capkrt:DateTimeInterval.quarter
         range: integer
         minimum_value: 1
         maximum_value: 4
@@ -572,7 +519,6 @@ classes:
       year:
         description: Year indicator for when this Work is completed. Use in
           combination with capkrt:DateTimeInterval.quarter.
-        slot_uri: capkrt:DateTimeInterval.year
         range: integer
         required: false
         multivalued: false
@@ -589,11 +535,9 @@ classes:
         multivalued: false
       type:
         description: Type of the update.
-        slot_uri: capkrt:UpdateInfo.type
         range: UpdateInfoKind
         required: true
         multivalued: false
-    class_uri: capkrt:UpdateInfo
   IdentifiedObject:
     description:
       This is a root class to provide common identification for all classes
