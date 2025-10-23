@@ -1,0 +1,46 @@
+"@id": https://modellen.netbeheernederland.nl/capaciteitskaart
+type: adms:Asset
+title: Capaciteitskaart
+contact point:
+  - v:Kind
+description:
+  Blaat
+publisher:
+  - foaf:Agent
+asset type: 8.1
+theme: 8.1
+language: 8.1
+modified: 2023-10-22
+has versions:
+  - "@id": https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0
+    type: adms:Asset
+    title: Capaciteitskaart
+    version: 2.0.0
+    status: 8.1
+    included assets:
+      - "@id": https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0#schema
+        type: adms:Asset
+        title: Capaciteitskaart (v2.0.0) &mdash; Schema
+        distributions:
+          - "@id": https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0#schema-linkml
+            type: adms:AssetDistribution
+            license: Apache-2.0
+            access url: https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/schema/linkml.yml
+            format: http://publications.europa.eu/resource/authority/file-type/YAML
+            representation technique: t:LinkML (8.1)
+      - "@id": https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/conceptueel-informatiemodel
+        type: adms:Asset
+        title: Capaciteitskaart (v2.0.0) &mdash; Conceptueel informatiemodel
+        distributions:
+          - "@id": https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/conceptueel-informatiemodel#linkml
+            type: adms:AssetDistribution
+            license: Apache-2.0
+            access url: https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/conceptueel-informatiemodel/model.linkml.yml
+            format: http://publications.europa.eu/resource/authority/file-type/YAML
+            representation technique: t:LinkML (8.1)
+          - "@id": https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/conceptueel-informatiemodel
+            type: adms:AssetDistribution
+            license: Apache-2.0
+            access url: https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/conceptueel-informatiemodel/model.json_ld.jsonld
+            format: http://publications.europa.eu/resource/authority/file-type/JSON_LD
+            representation technique: http://purl.org/adms/representationtechnique/UML

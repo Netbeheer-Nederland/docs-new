@@ -1,0 +1,6 @@
+name: capaciteitskaart
+title: Capaciteitskaart
+version: ~
+display_version: home
+nav:
+- modules/ROOT/nav.adoc
