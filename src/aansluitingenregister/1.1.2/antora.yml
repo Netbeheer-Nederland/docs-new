@@ -1,0 +1,19 @@
+name: aansluitingenregister
+version: 1.1.2
+ext:
+  collection: register
+  collector:  # This will be written by some simple extension.
+    #- clean:
+    #  dir: output/artifacts
+    #  dir: output/docs
+    - run:
+        command: ${{playbook.env.PWD}}/scripts/generate-register.sh
+        env:
+        - name: NAME
+          value: ${{origin.descriptor.name}}
+        - name: VERSION
+          value: ${{origin.descriptor.version}}
+        - name: TEMPLATES_DIR
+          value: ${{playbook.env.PWD}}/scripts/conceptuele-informatiemodellen-templates
+        #- name: DUMP
+        #  value: ${{origin as json}}
