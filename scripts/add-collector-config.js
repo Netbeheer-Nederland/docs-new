@@ -30,8 +30,8 @@ module.exports.register = function () {
                 ]
               },
               scan: {
-                  'clean': true,
-                  'dir': 'output/artifacts'
+                clean: true,
+                dir: 'output/artifacts'
               }
             }
             break
@@ -55,8 +55,8 @@ module.exports.register = function () {
                 ]
               },
               scan: {
-                  'clean': true,
-                  'dir': 'output/artifacts'
+                clean: true,
+                dir: 'output/artifacts'
               }
             }
             break
