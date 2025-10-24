@@ -12,8 +12,8 @@
 ** xref::modelleurs/regelgeving.adoc[]
 * xref::wegwijs.adoc[]
 * Modellen
-** xref:aangeslotenenregister:index.adoc[]
-** xref:aansluitingenregister:index.adoc[]
-** xref:installatieregister:index.adoc[]
-** xref:meetcomponentenregister:index.adoc[]
-** xref:meetcomponentstandaardenregister:index.adoc[]
+** xref:aangeslotenenregister::index.adoc[]
+** xref:aansluitingenregister::index.adoc[]
+** xref:installatieregister::index.adoc[]
+** xref:meetcomponentenregister::index.adoc[]
+** xref:meetcomponentstandaardenregister::index.adoc[]
