@@ -1,0 +1,5 @@
+name: meetcomponentenregister
+title: Meetcomponentenregister
+version: '1.0'
+ext:
+  collection: nbnl-register
