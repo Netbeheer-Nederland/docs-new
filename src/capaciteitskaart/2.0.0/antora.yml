@@ -1,6 +1,7 @@
 name: capaciteitskaart
 title: Capaciteitskaart
-version: ~
-display_version: home
+version: 2.0.0
 nav:
 - modules/ROOT/nav.adoc
+ext:
+  collection: cim-dataproduct

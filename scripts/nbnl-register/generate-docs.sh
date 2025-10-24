@@ -1,5 +1,8 @@
 #!/bin/env bash
 
+# Generate documentation for `nbnl-register`.
+
+
 function generate_antora_component_version {
     echo Generating Antora component version…
     echo
@@ -7,8 +10,6 @@ function generate_antora_component_version {
     rm -rf $OUT  # TODO: Why does `clean` in Antora Collector not do this properly?
     mkdir -p $OUT
     cp -r $SRC/* $OUT
-
-    ls $OUT
 
     # Create ROOT module directories
     mkdir -p $OUT/modules/ROOT/attachments && touch $OUT/modules/ROOT/attachments/.gitkeep
@@ -37,7 +38,6 @@ function generate_antora_component_version {
     find $OUT/modules/ROOT/pages -type f -name "*.md" -delete
     echo … OK.
 }
-
 
 
 ### Main
