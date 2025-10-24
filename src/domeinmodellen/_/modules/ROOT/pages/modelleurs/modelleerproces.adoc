@@ -1,0 +1,17 @@
+= Modelleren en reviewproces
+
+include::partial$under_construction.adoc[]
+
+Werkwijze en kwaliteitsborging in het modelleerteam.
+
+== Rollen
+
+* Wie modelleert, wie reviewt?
+
+== Reviewcriteria
+
+* Wanneer is iets '`klaar`'?
+
+== Overleg en besluitvorming
+
+* Synchroon/asynchroon overleg

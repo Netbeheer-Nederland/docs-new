@@ -1,0 +1,18 @@
+= Werken met GitHub
+
+include::partial$under_construction.adoc[]
+
+Werkinstructies voor het gebruik van de repository.
+
+== Bestandsstructuur
+
+* Waar staan diagrammen, LinkML-bestanden, documentatie?
+
+== Workflow
+
+* Fork, commit, pull request
+* Branchstrategie
+
+== Integratie
+
+* Hoe Drawio en LinkML samenkomen in een model

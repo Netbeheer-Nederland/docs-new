@@ -1,9 +1,9 @@
-id: https://netbeheernederland.nl/conceptueelinformatiemodel/aansluitingenregister
+id: https://modellen.netbeheernederland.nl/aansluitingenregister
 name: aansluitingenregister
 title: Aansluitingenregister
 # conventie: versienummer eindigt op '-draft' zolang het model niet klaar is
 # Versienummer in pad op GitHub heeft gewoon de waarde van de beoogde versie, zonder '-draft'.
-version: 1.1.3-draft
+version: 1.2-draft
 description: Het aansluitingenregister bevat alle elektriciteits- en gasaansluitingen in Nederland.
 comments:
   - Het aansluitingenregister wordt gezamenlijk beheerd door de netbeheerders en bevat zowel fysieke als administratieve gegevens over aansluitingen. Het register is essentieel voor de werking van de energiemarkt omdat het de basis vormt voor processen zoals leverancierswisselingen, verhuizingen en facturatie.
@@ -15,7 +15,12 @@ annotations:
   nbility: C.6.2.1. Aansluitingen/allocatiepunten beheren
 prefixes:
   linkml: https://w3id.org/linkml/
-  nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
+  begrip: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
+  # conventie: gebruik 'this' als lokale prefix, voor de dingen die door dit LinkML-bestand gedefinieerd worden
+  # conventie: 'this' niet als default_prefix zodat we zelf full control houden over URI's
+  this: https://modellen.netbeheernederland.nl/aansluitingenregister#
+  marktpartijenregister: https://modellen.netbeheernederland.nl/marktpartijenregister#
+  tarievenregister: https://modellen.netbeheernederland.nl/tarievenregister#
   nen: https://www.nen.nl/
   wetten: "https://wetten.overheid.nl/jci1.3:c:"
   energiewet: https://wetten.overheid.nl/jci1.3:c:BWBR0050714&
@@ -31,22 +36,26 @@ prefixes:
   adamstelsel: https://www.amsterdam.nl/stelselpedia/
   iso: https://www.iso.org/
   youtube: https://www.youtube.com/watch?v=
-default_prefix: https://netbeheernederland.nl/conceptueelinformatiemodel/aansluitingenregister/
+  bgt: http://opendata.stelselcatalogus.nl/bgt/id/begrip/
+  bag: http://opendata.stelselcatalogus.nl/bag/id/begrip/
+  brk: http://opendata.stelselcatalogus.nl/brk/id/begrip/
+default_prefix: this
 
 classes:
   Any:
     class_uri: linkml:Any
   Aansluiting:
+    # conventie: altijd expliciet class_uri. Toegestane karakters vanwege hergebruik als HTML-ankers zijn A-Z, a-z, 0-9, -, _, . en :. Hoofdletters behouden. Spaties vervangen door -.
+    class_uri: this:Aansluiting
+    # conventie: altijd óf `description` (= definitie) óf `exact_mappings` aanwezig
+    # conventie: elke class verwijst naar een NBNL-begrip, en daarmee indirect naar een NBility-bedrijfsobject voor eigenaarschap van definitie en data
+    exact_mappings:
+      - begrip:aansluiting
     annotations:
-      # conventie: bij elke `class` de naam van een NBility-bedrijfsobject
-      nbility: Aansluiting
       # conventie: NEN 3610 tijdlijnen als `tijdlijn_geldigheid`, `tijdlijn_registratie` en `levensduur`
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
-    # conventie: altijd óf `description` (= definitie) óf `exact_mappings` aanwezig
-    exact_mappings:
-      - nbnl:aansluiting
     comments:
       - Een koppeling met een gesloten distributiesysteem wordt in dit register beschouwd als aansluiting als de beheerder geen gebruik maakt van het elektronische berichtenverkeer ten behoeve van het faciliteren van derdentoegang (zie artikel 2.4, vierde lid van de Netcode elektriciteit).
     slots:
@@ -60,17 +69,17 @@ classes:
     attributes:
       gecontracteerde transportcapaciteit:
         exact_mappings:
-          - nbnl:gecontracteerde-transportcapaciteit
+          - begrip:gecontracteerde-transportcapaciteit
         see_also:
           - tce:hoofdstuk=3&paragraaf=3.7&artikel=3.7.4&z=2022-05-18&g=2022-05-18
           - tcg:hoofdstuk=2&paragraaf=2.6&artikel=2.33&z=2023-05-02&g=2023-05-02
-      grootte:
+      technische grootte:
         description: aanduiding van het formaat van de aansluiting op basis van de gewenste aansluitcapaciteiten van de overdrachtspunten
         comments:
           - De historische aanduiding 'artikel-1-lid-2-of-3-aansluiting' is nu afleidbaar uit de combinatie van 'grootte' en 'marktsegment'.
           # conventie: validatieregels in `comments`, beginnend met 'Validatie:'
           - "Validatie: als de gewenste aansluitcapaciteit van een van de overdrachtspunten 'groot' is of een geheel getal dan 'groot' anders 'klein'."
-        range: Groot of klein
+        range: Technische grootte
         required: true
       marktsegment:
         description: aanduiding van de categorie waartoe de aansluiting behoort, te weten kleinverbruikaansluiting of grootverbruikaansluiting
@@ -89,6 +98,10 @@ classes:
           - Ook wel bekend als 'zuivere teruglevering'.
         range: boolean
         required: true
+      unieke EAN-code bij MLOEA:
+        description: EAN-code die ongelijk is aan die van een allocatiepunt
+        comments:
+          - MLOEA staat voor meerdere leveranciers op een aansluiting. Het is een configuratie waarbij een aansluiting meer dan één allocatiepunt heeft. Omdat de aansluiting en het primaire allocatiepunt (PAP) dezelfde EAN-code delen, helpt de unieke EAN-code expliciet te maken dat het om de aansluiting gaat. Deze EAN-code staat ook wel bekend als virtueel allocatiepunt (VAP) of overdrachtspunt MLOEA (OPM), terwijl het geen allocatiepunt of overdrachtspunt betreft. Als in het berichtenverkeer tussen netbeheerder en meetverantwoordelijke voortaan expliciet wordt gemaakt welk entiteittype men bedoeld (aansluiting of allocatiepunt), dan is de unieke EAN-code niet meer nodig.
       weekmax:
         description: geeft aan of de kWmax per week gemeten moet worden
         see_also:
@@ -119,12 +132,13 @@ classes:
         unique_key_slots:
           - EAN-code
   Aansluitlocatie:
+    class_uri: this:Aansluitlocatie
+    exact_mappings:
+      - begrip:aansluitlocatie
     annotations:
-      nbility: Aansluiting
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
-    description: plek waar zich het overdrachtspunt bevindt
     comments:
       - Adresgegevens zijn zo veel mogelijk overeenkomstig NEN 5825.
     see_also:
@@ -132,6 +146,7 @@ classes:
     attributes:
       huisnummer:
         description: aan een verblijfsobject, standplaats of ligplaats toegekend nummer, een antwoordnummer of een postbusnummer
+        # conventie: `source` bevat de bron waarop de term of definitie is gebaseerd
         source: nen:nen-5825-2002-nl-83617
         required: true
         range: integer
@@ -201,7 +216,7 @@ classes:
         annotations:
           personal_data: true
       # relaties
-      in zelfde onroerende zaak als: 
+      in zelfde onroerende zaak als:
         comments:
           - "Verwijzen naar de basisregistraties kan met het patroon beschreven in NEN 3610: met 'domein' en 'identificatie', waar het domein in dit geval kan zijn: NL.IMBAG.Verblijfsobject NL.IMBAG.Standplaats, NL.IMBAG.Ligplaats, NL.IMBAG.Pand, NL.IMBAG.Nummeraanduiding, NL.IMKAD.KadastraalObject of NL.IMGeo."
         range: Any
@@ -229,8 +244,10 @@ classes:
         unique_key_slots:
           - locatienummer
   Aftakking:
+    class_uri: this:Aftakking
+    broad_mappings:
+      - begrip:netcomponent
     annotations:
-      nbility: Netcomponent
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
@@ -264,14 +281,13 @@ classes:
           - zijde
           - nominale waarde
   Allocatiepunt:
+    class_uri: this:Allocatiepunt
+    exact_mappings:
+      - begrip:allocatiepunt
     annotations:
-      nbility: Aansluiting
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
-    description: punt waar invoeding, onttrekking of verbruik van elektriciteit of gas wordt toegerekend aan een marktdeelnemer
-    # conventie: `source` bevat de bron waarop de term of definitie is gebaseerd
-    source: bce:z=2025-04-26&g=2025-04-26
     slots:
       - EAN-code
     slot_usage:
@@ -305,6 +321,7 @@ classes:
         unique_key_slots:
           - EAN-code
   Allocatiepunt bij aansluiting:
+    class_uri: this:Allocatiepunt-bij-aansluiting
     is_a: Allocatiepunt
     description: allocatiepunt toegekend aan een aansluiting
     attributes:
@@ -370,6 +387,7 @@ classes:
         annotations:
           inverse_cardinality: 1..*
   Allocatiepunt bij netgebied:
+    class_uri: this:Allocatiepunt-bij-netgebied
     description: allocatiepunt toegekend aan een netgebied
     is_a: Allocatiepunt
     attributes:
@@ -386,8 +404,10 @@ classes:
         annotations:
           inverse_cardinality: "1..*"
   Groep van strengen van lichtmasten:
+    class_uri: this:Groep-van-strengen-van-lichtmasten
+    broad_mappings:
+      - begrip:aansluitlocatie
     annotations:
-      nbility: Aansluiting
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
@@ -414,8 +434,10 @@ classes:
         unique_key_slots:
           - in rekening te brengen bij
   Meettransformator:
+    class_uri: this:Meettransformator
+    broad_mappings:
+      - begrip:netcomponent
     annotations:
-      nbility: Netcomponent
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
@@ -464,13 +486,13 @@ classes:
           - deel van
           - serienummer
   Netgebied:
+    class_uri: this:Netgebied
+    exact_mappings:
+      - begrip:netgebied
     annotations:
-      nbility: Aansluiting
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
-    description: aaneengesloten en samenhangend deel van een energienet van één netbeheerder, waarbinnen de processen allocatie en reconciliatie plaatsvinden
-    source: bce:z=2025-04-26&g=2025-04-26
     see_also:
       - iceg:hoofdstuk=2&paragraaf=2.1&artikel=2.1.3&z=2022-05-18&g=2022-05-18
     slots:
@@ -478,7 +500,7 @@ classes:
     attributes:
       energiedrager:
         exact_mappings:
-          - nbnl:energiedrager
+          - begrip:energiedrager
         range: Energiedrager
       naam:
         description: woord of combinatie van woorden waarmee een netgebied wordt aangeduid
@@ -494,8 +516,10 @@ classes:
         unique_key_slots:
           - EAN-code
   Netkoppeling:
+    class_uri: this:Netkoppeling
+    broad_mappings:
+      - begrip:aansluiting
     annotations:
-      nbility: Aansluiting
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
@@ -528,13 +552,13 @@ classes:
         unique_key_slots:
           - EAN-code
   Overdrachtspunt:
+    class_uri: this:Overdrachtspunt
     annotations:
-      nbility: Aansluiting
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
     exact_mappings:
-      - nbnl:overdrachtspunt
+      - begrip:overdrachtspunt
     slots:
       - EAN-code
     slot_usage:
@@ -545,7 +569,8 @@ classes:
           - nce:hoofdstuk=2&paragraaf=2.1&artikel=2.4&z=2022-11-25&g=2022-11-25
     attributes:
       aansluitcapaciteit:
-        description: transportvermogen van het overdrachtspunt zoals door een aangeslotene is aangevraagd en waarvoor het aansluittarief wordt betaald
+        exact_mappings:
+          - begrip:aansluitcapaciteit
         comments:
           - "Bij een klein overdrachtspunt voor elektriciteit aangeduid als het aantal fasen vermenigvuldigd met de nominale waarde van de overstroombeveiliging per fase. Bijvoorbeeld 3x25 (eenheid: A) of klein (indien onbekend)."
           - "Bij een klein overdrachtspunt voor gas aangeduid met de code G4, G6, G10, G16, G25 of klein (indien onbekend)."
@@ -569,7 +594,7 @@ classes:
       energierichting:
         description: richting waarin energie kan stromen over het overdrachtspunt
         broad_mappings:
-          - nbnl:energierichting
+          - begrip:energierichting
         comments:
           - "Voor elektriciteit geldt over het algemeen: combinatie. Voor gas geldt over het algemeen: indien profielcategorie GIS of GIN dan invoeding anders afname."
           - "De betekenis van het historische 'leveringsrichting' was net iets anders: de richting waarin de energie niet mogelijk maar daadwerkelijk stroomt. Energieleveranciers wisten dan wat ze konden verwachten. Dat gegeven is echter afleidbaar uit het energie-uitwisselingsregister en eventueel installatieregister."
@@ -614,6 +639,7 @@ classes:
         unique_key_slots:
           - EAN-code
   Primair deel elektriciteitsmeetinrichting:
+    class_uri: this:Primair-deel-elektriciteitsmeetinrichting
     is_a: Primair deel meetinrichting
     description: eventueel aanwezige spannings- en stroommeettransformatoren met inbegrip van de aansluitklemmen waarop het secundaire deel van de meetinrichting is aangesloten
     source: bce:hoofdstuk=1&artikel=1.1&z=2022-11-25&g=2022-11-25
@@ -644,6 +670,8 @@ classes:
         unit:
           ucum_code: A
   Primair deel gas- of waterstofmeetinrichting:
+    # conventie: niet per se dubbele -- in uri
+    class_uri: this:Primair-deel-gas-of-waterstofmeetinrichting
     is_a: Primair deel meetinrichting
     description: hulpmiddelen bij een gasaansluiting waarop het secundaire deel van de meetinrichting is aangesloten
     see_also:
@@ -678,8 +706,10 @@ classes:
         unit:
           ucum_code: "[in_i]"
   Primair deel meetinrichting:
+    class_uri: this:Primair-deel-meetinrichting
+    broad_mappings:
+      - begrip:netcomponent
     annotations:
-      nbility: Netfunctie
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
@@ -713,8 +743,10 @@ classes:
           - bij
           - identificatie
   Primaire meetkabel:
+    class_uri: this:Primaire-meetkabel
+    broad_mappings:
+      - begrip:netcomponent
     annotations:
-      nbility: Netcomponent
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
     description: kabel tussen meettransformator en aansluitklemmen
@@ -745,6 +777,7 @@ classes:
         unique_key_slots:
           - verbonden met
   Spanningsmeettransformator:
+    class_uri: this:Spanningsmeettransformator
     is_a: Meettransformator
     description: elektrisch apparaat dat wordt toegepast voor het verlagen van spanning zodat deze gemeten kan worden
     source: mce:hoofdstuk=4&paragraaf=4.3&sub-paragraaf=4.3.2&artikel=4.3.2.4&z=2023-04-01&g=2023-04-01
@@ -757,6 +790,7 @@ classes:
         unit:
           ucum_code: V.A
   Stroommeettransformator:
+    class_uri: this:Stroommeettransformator
     is_a: Meettransformator
     description: elektrisch apparaat dat wordt toegepast voor het verlagen van stroom zodat deze gemeten kan worden
     source: mce:hoofdstuk=4&paragraaf=4.3&sub-paragraaf=4.3.2&artikel=4.3.2.4&z=2023-04-01&g=2023-04-01
@@ -772,8 +806,10 @@ classes:
           - Ook bekend als factor of security (FS) en instrumentsveiligheidsfactor.
         range: float
   Tarieftoepassing:
+    class_uri: this:Tarieftoepassing
+    broad_mappings:
+      - begrip:aansluiting
     annotations:
-      nbility: Aansluiting
       tijdlijn_geldigheid: true
       tijdlijn_registratie: true
       tijdlijn_effectuering: true
@@ -808,30 +844,39 @@ classes:
 
   # conventie: onderstaand patroon voor entiteiten in andere registers
   Grootschalig topografisch object:
+    class_uri: bgt:imgeo_object
     annotations:
       external_registry: Basisregistratie Grootschalige Topografie
   Ligplaats:
+    class_uri: bag:ligplaats
     annotations:
       external_registry: Basisregistratie Adressen en Gebouwen
   Marktpartijsubregistratie:
+    class_uri: marktpartijenregister:Marktpartijsubregistratie
     annotations:
       external_registry: Marktpartijenregister
   Nummeraanduiding:
+    class_uri: bag:nummeraanduiding
     annotations:
       external_registry: Basisregistratie Adressen en Gebouwen
   Pand:
+    class_uri: bag:pand
     annotations:
       external_registry: Basisregistratie Adressen en Gebouwen
   Perceel:
+    class_uri: brk:perceel
     annotations:
       external_registry: Basisregistratie Kadaster
   Standplaats:
+    class_uri: bag:standplaats
     annotations:
       external_registry: Basisregistratie Adressen en Gebouwen
   Tariefcomponent:
+    class_uri: tarievenregister:Tariefcomponent
     annotations:
       external_registry: Tarievenregister
   Verblijfsobject:
+    class_uri: bag:verblijfsobject
     annotations:
       external_registry: Basisregistratie Adressen en Gebouwen
 
@@ -843,7 +888,7 @@ slots:
       - iceg:hoofdstuk=2&paragraaf=2.1&artikel=2.1.3&z=2022-05-18&g=2022-05-18
   energiedrager:
     exact_mappings:
-      - nbnl:energiedrager
+      - begrip:energiedrager
     range: Energiedrager
     see_also:
       - iceg:hoofdstuk=2&paragraaf=2.1&artikel=2.1.3&z=2022-05-18&g=2022-05-18
@@ -904,11 +949,11 @@ enums:
   Energierichting:
     permissible_values:
       afname:
-        meaning:  nbnl:afname
+        meaning:  begrip:afname
       combinatie:
         description: afname en invoeding
       invoeding:
-        meaning: nbnl:invoeding
+        meaning: begrip:invoeding
   Flensdrukklasse:
     permissible_values:
       onbekend:
@@ -947,16 +992,18 @@ enums:
     permissible_values:
       in aanleg:
       in bedrijf:
-  Groot of klein:
+  Technische grootte:
     permissible_values:
-      groot:
-      klein:
+      grote aansluiting:
+        meaning: begrip:grote-aansluiting
+      kleine aansluiting:
+        meaning: begrip:kleine-aansluiting
   Marktsegment:
     permissible_values:
       grootverbruikaansluiting:
-        meaning: nbnl:grootverbruikaansluiting
+        meaning: begrip:grootverbruikaansluiting
       kleinverbruikaansluiting:
-        meaning: nbnl:kleinverbruikaansluiting
+        meaning: begrip:kleinverbruikaansluiting
   Nauwkeurigheidsklasse:
     permissible_values:
       onbekend:
