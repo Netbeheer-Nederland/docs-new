@@ -186,7 +186,7 @@ requires-dist = [
     { name = "check-jsonschema", specifier = ">=0.31.0,<0.32.0" },
     { name = "gen-linkml-profile", git = "https://github.com/Netbeheer-Nederland/gen-linkml-profile.git" },
     { name = "linkml", specifier = ">=1.8.4,<2.0" },
-    { name = "linkml-asciidoc-generator", editable = "../linkml-asciidoc-generator" },
+    { name = "linkml-asciidoc-generator", git = "https://github.com/Netbeheer-Nederland/linkml-asciidoc-generator.git?rev=v0.5.0" },
     { name = "linkml-runtime", specifier = ">=1.8.1,<1.9" },
 ]
 
@@ -467,24 +467,11 @@ wheels = [
 [[package]]
 name = "linkml-asciidoc-generator"
 version = "0.5.0"
-source = { editable = "../linkml-asciidoc-generator" }
+source = { git = "https://github.com/Netbeheer-Nederland/linkml-asciidoc-generator.git?rev=v0.5.0#1cae733495b27c44ce49090a64290c8b98059afd" }
 dependencies = [
     { name = "jinja2" },
     { name = "pydantic" },
     { name = "pyyaml" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "jinja2", specifier = ">=3.1.4" },
-    { name = "pydantic", specifier = ">=2.9.2" },
-    { name = "pyyaml", specifier = ">=6.0.2" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "ipykernel", specifier = ">=6.29.5" },
-    { name = "pytest", specifier = ">=8.3.3" },
 ]
 
 [[package]]
