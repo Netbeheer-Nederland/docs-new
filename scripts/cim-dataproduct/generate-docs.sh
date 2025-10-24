@@ -7,9 +7,9 @@ function generate_antora_component_version {
     echo Generating Antora component version…
     echo
 
-    mkdir -p $OUT/modules/ROOT
-    cp $SRC/antora.yml $OUT
-    cp -r $SRC/documentation/* $OUT/modules/ROOT
+    mkdir -p $OUT
+    cp $SRC/antora.yml $OUT/
+    cp -r $SRC/documentation/* $OUT/
 
     mkdir -p $OUT/modules/schema
     uv run python -m linkml_asciidoc_generator.main \

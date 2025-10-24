@@ -1,15 +1,18 @@
 module.exports.register = function () {
-  this.once('contentAggregated', ({ contentAggregate }) => {
+  this.once('contentAggregated', ({ contentAggregate, playbook }) => {
     for (const { origins } of contentAggregate) {
       for (const origin of origins) {
         if (origin.descriptor.ext?.collection === undefined) continue
 
         let collector
+        const outDir = `${playbook.env.PWD}/output/artifacts`
+        const scriptsDir = `${playbook.env.PWD}/scripts`
+
         switch (origin.descriptor.ext.collection) {
           case "nbnl-register":
             collector = {
               run: {
-                command: 'scripts/nbnl-register/generate-docs.sh',
+                command: `${scriptsDir}/nbnl-register/generate-docs.sh`,
                 env: [
                   {
                     'name': 'NAME',
@@ -17,28 +20,28 @@ module.exports.register = function () {
                   },
                   {
                     'name': 'SRC',
-                    'value': origin.startPath
+                    'value': `./${origin.startPath}`
                   },
                   {
                     'name': 'OUT',
-                    'value': 'output/artifacts'
+                    'value': outDir
                   },
                   {
                     'name': 'TEMPLATES_DIR',
-                    'value': 'scripts/nbnl-register/templates'
+                    'value': `${scriptsDir}/nbnl-register/templates`
                   }
                 ]
               },
               scan: {
                 clean: true,
-                dir: 'output/artifacts'
+                dir: outDir
               }
             }
             break
           case "cim-dataproduct":
             collector = {
               run: {
-                command: 'scripts/cim-dataproduct/generate-docs.sh',
+                command: `${scriptsDir}/cim-dataproduct/generate-docs.sh`,
                 env: [
                   {
                     'name': 'NAME',
@@ -46,17 +49,17 @@ module.exports.register = function () {
                   },
                   {
                     'name': 'SRC',
-                    'value': origin.startPath
+                    'value': `./${origin.startPath}`
                   },
                   {
                     'name': 'OUT',
-                    'value': 'output/artifacts'
+                    'value': outDir
                   }
                 ]
               },
               scan: {
                 clean: true,
-                dir: 'output/artifacts'
+                dir: outDir
               }
             }
             break
