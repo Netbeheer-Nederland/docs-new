@@ -1,0 +1,268 @@
+id: https://netbeheernederland.nl/conceptueelinformatiemodel/aansluitingenregister
+# conventie: name gelijk aan laatste deel id
+name: aansluitingenregister
+# conventie: title is weergavenaam
+title: Aansluitingenregister
+# conventie: versienummer eindigt op '-draft' zolang het model niet klaar is
+# Versienummer in pad op GitHub heeft gewoon de waarde van de beoogde versie, zonder '-draft'.
+version: 1.1.2
+description: Het aansluitingenregister bevat alle elektriciteits- en gasaansluitingen in Nederland.
+comments:
+  - Het aansluitingenregister wordt gezamenlijk beheerd door de netbeheerders en bevat zowel fysieke als administratieve gegevens over aansluitingen. Het register is essentieel voor de werking van de energiemarkt omdat het de basis vormt voor processen zoals leverancierswisselingen, verhuizingen en facturatie.
+  - De verplichting tot het bijhouden van het aansluitingenregister is vastgelegd in de Informatiecode elektriciteit en gas, vastgesteld door de Autoriteit Consument en Markt (ACM).
+see_also:
+    # conventie: Juriconnect voor verwijzing naar regelgeving
+  - https://wetten.overheid.nl/jci1.3:c:BWBR0037934&hoofdstuk=2&paragraaf=2.1&z=2025-01-01&g=2025-01-01
+prefixes:
+  linkml: https://w3id.org/linkml/
+  aansluitingenregister: https://netbeheernederland.nl/conceptueelinformatiemodel/aansluitingenregister/
+  nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
+  nbility: https://nbility-model.github.io/NBility-business-capabilities-Archi/
+# conventie: standaard geen `string` maar `Tekst`
+default_range: Tekst
+# conventie: gelijk aan name
+default_prefix: aansluitingenregister
+
+classes:
+  # conventie: class-naam begint met hoofdletter
+  Aangeslotene:
+    # conventie: altijd óf `description` óf `exact_mappings` aanwezig
+    # conventie: `exact_mappings` voor verwijzing naar begrippen.netbeheernederland.nl
+    exact_mappings:
+      - nbnl:aangeslotene
+    comments:
+      - Aangeslotenen worden niet uniek geïdentificeerd. Daarom gaat het hier om een gegevensgroep bij een aansluiting, niet om een zelfstandige entiteit.
+    attributes:
+      geboortedatum:
+        # conventie: description bevalt altijd de definitie zonder toelichting
+        description: datum van de bevalling waarbij de aangeslotene is geboren
+        # conventie: see_also bevat de bronnen waarop de definitie is gebaseerd
+        see_also:
+          - https://wetten.overheid.nl/jci1.3:c:BWBR0037934&hoofdstuk=3&paragraaf=3.3&sub-paragraaf=3.3.1&artikel=3.3.1.1&z=2023-06-28&g=2023-06-28
+      naam:
+        description: naam van een organisatie of de achternaam (zonder tussenvoegsel) van een natuurlijk persoon
+        # conventie: bij een essentiële eigenschap: required op true
+        required: true
+      tussenvoegsel:
+        description: verzameling van een of meer voorzetsels en/of lidwoorden die aan de achternaam van een aangeslotene vooraf gaat en daarmee gezamenlijk de volledige achternaam vormt
+        see_also:
+          - https://wetten.overheid.nl/jci1.3:c:BWBR0037934&hoofdstuk=2&paragraaf=2.9&sub-paragraaf=2.9.2&artikel=2.9.2.1&z=2022-12-20&g=2022-12-20
+      voorletters:
+        description: verzameling letters die wordt gevormd door de eerste letter van alle in volgorde voorkomende voornamen van een aangeslotene
+        see_also:
+          - https://wetten.overheid.nl/jci1.3:c:BWBR0037934&hoofdstuk=2&paragraaf=2.9&sub-paragraaf=2.9.2&artikel=2.9.2.1&z=2022-12-20&g=2022-12-20
+      KVK-nummer:
+        description: identificatie van de maatschappelijke activiteit van de aangeslotene in het Handelsregister
+        see_also:
+          - https://wetten.overheid.nl/jci1.3:c:BWBR0037934&hoofdstuk=3&paragraaf=3.3&sub-paragraaf=3.3.1&artikel=3.3.1.1&z=2023-06-28&g=2023-06-28
+      # conventie: target-class-naam in relatienaam (om ze uniek te maken)
+      # conventie: relatie altijd als `attribute` onder eigenaar van relatie
+      beschikker over (Aansluiting):
+        range: Aansluiting
+        # conventie: multipliciteiten op relaties altijd expliciet
+        required: true
+        multivalued: false
+        annotations:
+          # conventie: omgekeerde multipliciteit als `inverse_cardinality`
+          inverse_cardinality: 0..1
+    unique_keys:
+      # conventie: natuurlijke sleutel / business key heet altijd `identificatie`
+      identificatie:
+        unique_key_slots:
+          - beschikker over (Aansluiting)
+    annotations:
+      # conventie: bij elke `class` de naam van een NBility-bedrijfsobject
+      nbility_object: Klant
+      # conventie: NEN 3610 tijdslijnen als `nen3610_geldigheid`, `nen3610_registratie` en `nen3610_levensduur`
+      nen3610_geldigheid: true
+      nen3610_registratie: true
+  Aansluiting:
+    exact_mappings:
+      - nbnl:aansluiting
+    narrow_mappings:
+      - nbility:aansluiting
+    # conventie: opmerkingen als `comments` (niet in `description`)
+    comments:
+      - Een koppeling met een gesloten distributiesysteem wordt in dit register beschouwd als aansluiting als de beheerder geen gebruik maakt van het elektronische berichtenverkeer ten behoeve van het faciliteren van derdentoegang ([artikel 2.4, vierde lid van de Netcode elektriciteit](https://wetten.overheid.nl/jci1.3:c:BWBR0037940&hoofdstuk=2&paragraaf=2.1&artikel=2.4&z=2023-04-01&g=2023-04-01)).
+    # conventie: alleen herbruikbare eigenschappen in `slots`, anders `attributes`
+    slots:
+      - EAN-code
+      - energiedrager
+    attributes:
+      # conventie: geen PascalCase, snake_case of andere technische notatiewijzen in namen van classes, slots, enums of types
+      gecontracteerde transportcapaciteit:
+        exact_mappings:
+          - nbnl:gecontracteerde-transportcapaciteit
+      grootte:
+        description: aanduiding van het formaat van de aansluiting op basis van de gewenste aansluitcapaciteiten van de overdrachtspunten
+        comments:
+          # conventie: validatieregels in `comments`, beginnend met 'Validatie:'
+          - "Validatie: als de gewenste aansluitcapaciteit van een van de overdrachtspunten 'groot' is of een geheel getal dan 'groot' anders 'klein'."
+        range: Groot of klein
+        required: true
+      marktsegment:
+        description: aanduiding van de categorie waartoe de aansluiting behoort, te weten kleinverbruikaansluiting of grootverbruikaansluiting
+        see_also:
+          - https://wetten.overheid.nl/jci1.3:c:BWBR0037934&hoofdstuk=2&paragraaf=2.1&artikel=2.1.3&z=2022-05-18&g=2022-05-18
+          - https://wetten.overheid.nl/jci1.3:c:BWBR0037938&hoofdstuk=1&artikel=1.1&z=2022-11-25&g=2022-11-25
+        comments:
+          - Een aansluiting met een kleine capaciteit kan onder voorwaarden worden beschouwd als grootverbruikaansluiting, bijvoorbeeld als het een aansluiting betreft op een gesloten distributiesysteem of een aansluiting zoals bedoeld in [artikel 1, lid 2 of 3 van de Elektriciteitswet 1998](https://wetten.overheid.nl/jci1.3:c:BWBR0009755&hoofdstuk=1&paragraaf=1&artikel=1&z=2022-10-01&g=2022-10-01).
+        range: Marktsegment
+        required: true
+      uitsluitend elektriciteitsproductie-eenheden:
+        description: indicatie of achter een aansluiting zich uitsluitend elektriciteitsproductie-eenheden bevinden en geen ander verbruik dan het eigen verbruik van de desbetreffende elektriciteitsproductie-eenheden
+        see_also:
+          - https://wetten.overheid.nl/jci1.3:c:BWBR0037951&hoofdstuk=3&paragraaf=3.7&artikel=3.7.13.b&z=2022-05-18&g=2022-05-18
+        comments:
+          - Ook wel bekend als 'zuivere teruglevering'.
+        range: Waar of onwaar
+        required: true
+      weekmax:
+        description: indicatie of de kWmax per week gemeten moet worden
+        see_also:
+          - https://wetten.overheid.nl/jci1.3:c:BWBR0037951&hoofdstuk=3&paragraaf=3.7&artikel=3.7.5a&z=2022-05-18&g=2022-05-18
+        range: Waar of onwaar
+      deel van (Netgebied):
+        range: Netgebied
+        required: false
+        multivalued: false
+        annotations:
+          inverse_cardinality: 0..*
+    unique_keys:
+      identificatie:
+        unique_key_slots:
+          - EAN-code
+    annotations:
+      nbility_object: Aansluiting
+      nen3610_geldigheid: true
+      nen3610_registratie: true
+  Allocatiepunt:
+    description: punt waar invoeding, onttrekking of verbruik van elektriciteit of gas wordt toegerekend aan een marktdeelnemer
+    abstract: true
+    slots:
+      - EAN-code
+    unique_keys:
+      identificatie:
+        unique_key_slots:
+          - EAN-code
+    annotations:
+      nbility_object: Aansluiting
+      # conventie: `annotations` op class-niveau worden geacht te overerven naar subclasses
+      nen3610_geldigheid: true
+      nen3610_registratie: true
+  Allocatiepunt bij aansluiting:
+    description: allocatiepunt toegekend aan een aansluiting
+    is_a: Allocatiepunt
+    attributes:
+      bij (Aansluiting):
+        range: Aansluiting
+        required: true
+        multivalued: false
+        annotations:
+          inverse_cardinality: 1..*
+  Allocatiepunt bij netgebied:
+    description: allocatiepunt toegekend aan een netgebied
+    is_a: Allocatiepunt
+    attributes:
+      bij (Netgebied):
+        range: Netgebied
+        required: true
+        multivalued: false
+        annotations:
+          inverse_cardinality: 1..*
+  Netgebied:
+    description: aaneengesloten en samenhangend deel van een energienet van één netbeheerder, waarbinnen de processen allocatie en reconciliatie plaatsvinden
+    see_also:
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0037938&hoofdstuk=1&artikel=1.1&z=2022-11-25&g=2022-11-25
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0037923&hoofdstuk=1&artikel=1.1&z=2021-06-01&g=2021-06-01
+    slots:
+      - EAN-code
+    unique_keys:
+      identificatie:
+        unique_key_slots:
+          - EAN-code
+    annotations:
+      nbility_object: Aansluiting
+      nen3610_geldigheid: true
+      nen3610_registratie: true
+  Overdrachtspunt:
+    exact_mappings:
+      - nbnl:overdrachtspunt
+    slots:
+      - EAN-code
+    attributes:
+      deel van (Aansluiting):
+        range: Aansluiting
+        required: true
+        multivalued: false
+        annotations:
+          inverse_cardinality: 1..*
+    unique_keys:
+      identificatie:
+        unique_key_slots:
+          - EAN-code
+    annotations:
+      nbility_object: Aansluiting
+      nen3610_geldigheid: true
+      nen3610_registratie: true
+
+slots:
+  EAN-code:
+    description: unieke cijfercombinatie volgens de Europese Artikelnummer-standaard
+    range: EAN-18
+    required: true
+  energiedrager:
+    exact_mappings:
+      - nbnl:energiedrager
+    range: Energiedrager
+
+enums:
+  Energiedrager:
+    permissible_values:
+      elektriciteit:
+      gas:
+      waterstof:
+  Groot of klein:
+    permissible_values:
+      groot:
+      klein:
+  Marktsegment:
+    permissible_values:
+      grootverbruikaansluiting:
+        exact_mappings:
+          - nbnl:grootverbruikaansluiting
+      kleinverbruikaansluiting:
+        exact_mappings:
+          - nbnl:kleinverbruikaansluiting
+
+types:
+  EAN-18:
+    typeof: Tekst
+    description: Europees artikelnummer van achttien cijfers
+    pattern: "^[0-9]{18}$"
+    base: str
+  # conventie: gebruik deze basistypen in plaats van de technische varianten
+  Datum:
+    description: kalenderdatum, zonder tijdsaanduiding
+    base: date
+  Geheel getal:
+    description: getal zonder decimalen
+    base: int
+  Getal:
+    description: voorstelling van een hoeveelheid
+    base: float
+  Tekst:
+    description: aanduiding bedoeld voor mensen, zonder vaste structuur of betekenis
+    base: str
+  Tijdsduur:
+    description: lengte van een tijdsinterval, bijvoorbeeld een uur of een dag
+    base: duration
+  Tijdstip:
+    description: exacte aanduiding van datum en tijd, inclusief eventueel tijdzone-informatie
+    base: datetime
+  Waar of onwaar:
+    description: binaire aanduiding die aangeeft of een propositie of kenmerk van toepassing is (waar) of niet van toepassing is (onwaar)
+    base: bool
+  URI:
+    description: uniforme aanduiding van een externe of interne bron
+    base: uri
