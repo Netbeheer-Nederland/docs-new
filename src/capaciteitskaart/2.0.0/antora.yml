@@ -1,5 +1,5 @@
-name: dp-capaciteitskaart
-title: DP Capaciteitskaart
+name: capaciteitskaart
+title: Capaciteitskaart
 version: 2.0.0
 nav:
 - modules/ROOT/nav.adoc
