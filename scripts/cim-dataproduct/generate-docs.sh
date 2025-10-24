@@ -7,7 +7,6 @@ function generate_antora_component_version {
     echo Generating Antora component version…
     echo
 
-    rm -rf $OUT  # TODO: Why does `clean` in Antora Collector not do this properly?
     mkdir -p $OUT
     cp -r $SRC/* $OUT
 

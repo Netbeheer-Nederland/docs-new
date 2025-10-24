@@ -2,7 +2,6 @@ module.exports.register = function () {
   this.once('contentAggregated', ({ contentAggregate }) => {
     for (const { origins } of contentAggregate) {
       for (const origin of origins) {
-        // if (origin.descriptor.ext.collection === 'data-product' && origin.reftype !== 'branch') continue
         if (origin.descriptor.ext?.collection === undefined) continue
 
         let collector
@@ -31,6 +30,7 @@ module.exports.register = function () {
                 ]
               },
               scan: {
+                  'clean': true,
                   'dir': 'output/artifacts'
               }
             }
@@ -55,6 +55,7 @@ module.exports.register = function () {
                 ]
               },
               scan: {
+                  'clean': true,
                   'dir': 'output/artifacts'
               }
             }
