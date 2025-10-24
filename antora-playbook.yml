@@ -28,4 +28,6 @@ ui:
   supplemental_files: supplemental-ui
 antora:
   extensions:
-  - require: '@antora/lunr-extension'
+  - '@antora/lunr-extension'
+  - ./scripts/add-collector-config.js
+  - '@antora/collector-extension'
