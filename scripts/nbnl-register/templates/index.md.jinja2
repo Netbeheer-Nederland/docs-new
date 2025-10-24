@@ -1,6 +1,18 @@
-{%- macro uri_link(curie) -%}
-  {%- set curie_md = gen.uri_link(curie) -%}
-  {{curie_md.strip(")").replace("[", "`").replace("]", "`").split("(") | reverse | join("[") ~ "]"}}
+{%- macro link(name, local=false) -%}
+    {%- if local -%}
+        {%- set element = schemaview.get_element(name) -%}
+        {%- if element.class_uri -%}
+            {%- if element.annotations.external_registry -%}
+                {{gen.uri(element)}}[{{name}}] ({{element.annotations.external_registry.value}})
+            {%- else -%}
+                <<{{element.class_uri|replace(schema.default_prefix ~ ':', '')}},{{name}}>>
+            {%- endif -%}
+        {%- else -%}
+            <<{{id_safe(name)}},{{name}}>>
+        {%- endif -%}
+    {%- else -%}
+        {{schemaview.expand_curie(name)}}[{{name}}]
+    {%- endif -%}
 {%- endmacro -%}
 
 {%- macro key_symbol(class, slot) -%}
@@ -18,22 +30,23 @@
 {%- endmacro -%}
 
 {%- macro id_safe(v) -%}
-    {%- set allowed = 'abcdefghijklmnopqrstuvwxyz0123456789-' -%}
-    {%- for c in v|lower -%}
+    {%- set allowed = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_:.' -%}
+        local: {#- prefix moet botsingen met URI-gebaseerde HTML-ankers voorkomen -#}
+    {%- for c in v -%}
         {%- if c in allowed -%}
             {{c}}
-        {%- elif c == ' ' -%}
+        {%- else -%}
             -
         {%- endif -%}
     {%- endfor -%}
 {%- endmacro -%}
 
-{%- macro link(name) -%}
-    <<{{id_safe(name)}},{{name}}>>
-{%- endmacro -%}
-
-{%- macro anchor(name) -%}
-    [[{{id_safe(name)}}]]
+{%- macro anchor(element) -%}
+    {%- if element.class_uri -%}
+        [[{{element.class_uri|replace(schema.default_prefix ~ ':', '')}}]]
+    {%- else -%}
+        [[{{id_safe(element.name)}}]]
+    {%- endif -%}
 {%- endmacro -%}
 
 {%- macro range(name) -%}
@@ -54,15 +67,8 @@
         'ncname': 'prefixnaam' } -%}
     {%- if name in base_types -%}
         {{base_types[name]}}
-    {%- elif name in schemaview.all_classes() -%}
-        {%- set class = schemaview.get_class(name) -%}
-        {%- if class.annotations.external_registry -%}
-            {{name}} ({{class.annotations.external_registry.value}})
-        {%- else -%}
-            {{link(name)}}
-        {%- endif -%}
     {%- else -%}
-        {{link(name)}}
+        {{link(name, true)}}
     {%- endif -%}
 {%- endmacro -%}
 
@@ -94,7 +100,7 @@
     {%- if mappings -%}
         {%- set linked = [] -%}
         {%- for m in mappings -%}
-            {%- set _ = linked.append(uri_link(m)) -%}
+            {%- set _ = linked.append(link(m)) -%}
         {%- endfor -%}
         {%- if type == 'exact' -%}
             {{- '_' ~ linked | join(', ') ~ '_' -}}
@@ -111,7 +117,7 @@
     {%- if element.description -%}
         {# source #}
         {%- if element.source -%}
-            {%- set _ = parts.items.append('_' ~ element.description ~ '_' ~ ' (zie ' ~ uri_link(element.source) ~ ')') -%}
+            {%- set _ = parts.items.append('_' ~ element.description ~ '_' ~ ' (zie ' ~ link(element.source) ~ ')') -%}
         {%- else -%}
             {%- set _ = parts.items.append('_' ~ element.description ~ '_') -%}
         {%- endif -%}
@@ -119,7 +125,7 @@
 
     {# meaning #}
     {%- if element.meaning -%}
-        {%- set _ = parts.items.append('_' ~ uri_link(element.meaning) ~ '_') -%}
+        {%- set _ = parts.items.append('_' ~ link(element.meaning) ~ '_') -%}
     {%- endif -%}
 
     {# exact_mappings #}
@@ -154,7 +160,7 @@
 
     {# specialization #}
     {%- if element.is_a -%}
-        {%- set _ = parts.items.append('Specialisatie van ' ~ link(schemaview.get_class(element.is_a).name)) -%}
+        {%- set _ = parts.items.append('Specialisatie van ' ~ link(element.is_a, true)) -%}
     {%- endif -%}
 
     {# comments #}
@@ -190,7 +196,7 @@
     {%- if element.see_also -%}
         {%- set linked = [] -%}
         {%- for s in element.see_also -%}
-            {%- set _ = linked.append(uri_link(s)) -%}
+            {%- set _ = linked.append(link(s)) -%}
         {%- endfor -%}
         {%- set _ = parts.items.append('.Zie ook\n[%collapsible]\n====\n* ' ~ linked | join('\n* ') ~ '\n====') -%}
     {%- endif -%}
@@ -202,18 +208,17 @@
 :table-caption!:
 :table-grid: rows
 :parent: {{schema.title}}
-:page-schema-uri: {{schema.id ~ "/" ~ schema.version | trim("-draft")}}
 
 {{omschrijving(schema)}}
 
-image::{{ schema.name }}.drawio.svg[id=conceptual-model]
+image::{{schema.name}}.drawio.svg[id=conceptual-model]
 
 xref::attachment${{schema.name}}.linkml.yml[LinkML-broncode]
 
 {% for class in gen.all_class_objects() | sort(attribute=sort_by) %}
 {% if class.name != 'Any' and not class.annotations.external_registry %}
 
-{{anchor(class.name)}}
+{{anchor(class)}}
 == {{class.name}}
 
 {{omschrijving(class)}}
@@ -283,9 +288,9 @@ a| {{omschrijving(slot)}}
 | Waardesoort | Omschrijving | Gebaseerd op | Patroon
 
 {% endif -%}
-| {{anchor(t.name)}}{{t.name}}
+| {{anchor(t)}}{{t.name}}
 a| {{omschrijving(t)}}
-| {% if t.typeof %}{{link(t.typeof)}}{% else %}{{range(t.base)}}{% endif %}
+| {% if t.typeof %}{{link(t.typeof, true)}}{% else %}{{range(t.base)}}{% endif %}
 | {% if t.pattern %}`{{t.pattern}}`{% endif %}
 {% if loop.last %}
 |===
@@ -299,7 +304,7 @@ a| {{omschrijving(t)}}
 == Waardelijsten
 {% endif %}
 
-{{anchor(e.name)}}
+{{anchor(e)}}
 [discrete]
 === {{e.name}}
 
@@ -332,7 +337,7 @@ a| {{omschrijving(pv)}}
         data-category="Announcements"
         data-category-id="DIC_kwDOQBNmqs4CxBNX"
         data-mapping="pathname"
-        data-strict="0"
+        data-strict="1"
         data-reactions-enabled="0"
         data-emit-metadata="0"
         data-input-position="bottom"
