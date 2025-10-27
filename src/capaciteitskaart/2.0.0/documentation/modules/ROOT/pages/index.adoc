@@ -1,0 +1,194 @@
+= Capaciteitskaart
+:page-link-alt-jsonld: https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/index.jsonld
+
+[horizontal]
+Thema:: https://modellen.netbeheernederland.nl/adms-ap-nbnl/theme#CIMDataproduct[CIM-dataproduct]
+
+Laatst gewijzigd::
+  2025-10-16 12:51
+
+Schema file:: +
+[unstyled]
+* [[schema-linkml-yaml]] {site-url}/capaciteitskaart/2.0.0/schema/linkml.yml[Schema] (https://modellen.netbeheernederland.nl/adms-ap-nbnl/representationTechnique#linkml[LinkML]; http://publications.europa.eu/resource/authority/file-type/YAML[YAML])
+
+'''
+
+The capacity heatmaps information model was defined to cover a superset of data
+exchanged by the NL system operators. A minimum set of data is defined that all
+operators are expected to conform to, along with a number of optional
+properties and data types.
+
+.Data Product
+[d2,svg,theme=4]
+----
+grid-rows: 4
+grid-columns: 5
+
+horizontal-gap: 160
+vertical-gap: 80
+
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
+UpdateInfo.class: enterprise
+1.class: empty
+2.class: empty
+AreaCapacity.class: grid
+6.class: empty
+
+HeatmapDataSet.class: dataset
+GeographicalRegion.class: enterprise
+SubGeographicalRegion.class: enterprise
+EnergyArea.class: grid
+PostcodeArea.class: enterprise
+
+3.class: empty
+7.class: empty
+8.class: empty
+Work.class: enterprise
+4.class: empty
+
+DateTimeInterval.class: grid
+9.class: empty
+10.class: empty
+WorkTimeSchedule.class: enterprise
+5.class: empty
+
+HeatmapDataSet -> UpdateInfo: "updated"
+HeatmapDataSet -> DateTimeInterval: "valid"
+HeatmapDataSet -> GeographicalRegion: "geographical_regions"
+GeographicalRegion -> SubGeographicalRegion: "regions"
+SubGeographicalRegion -> EnergyArea: "energy_areas"
+EnergyArea -> Work: "works"
+Work -> WorkTimeSchedule: "time_schedules"
+WorkTimeSchedule -> DateTimeInterval: "schedule_interval"
+EnergyArea -> PostcodeArea: "postcode_areas"
+EnergyArea -> AreaCapacity: "area_capacity"
+
+classes: {
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke: transparent
+    }
+  }
+  grid: {
+    style: {
+      fill: "#eccfcb"
+      shadow: true
+    }
+  }
+  enterprise: {
+    style: {
+      fill: "#d1e7c2"
+      shadow: true
+    }
+  }
+  market: {
+    style: {
+      fill: "#fffbef"
+      shadow: true
+    }
+  }
+  dataset: {
+    style: {
+      shadow: true
+    }
+  }
+}
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+
+classes: {
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke: transparent
+    }
+  }
+  grid: {
+    style: {
+      fill: "#eccfcb"
+      shadow: true
+    }
+  }
+  enterprise: {
+    style: {
+      fill: "#d1e7c2"
+      shadow: true
+    }
+  }
+  market: {
+    style: {
+      fill: "#fffbef"
+      shadow: true
+    }
+  }
+}
+----
+
+The data is intended to be presented as a hierarchy with a
+xref:schema:class/HeatmapDataSet.adoc[`HeatmapDataSet`] at its root, followed
+by xref:schema:class/EnergyArea.adoc[`EnergyArea`] nested inside the
+`HeatmapDataSet`. A `GeographicalRegion` is used to allow consolidation of
+multiple datasets.
+
+This information model is based in part on the `LTDS Capacity Heatmap
+Information Model`, which itself is published under the `Open Government
+License`, under ©Crown copyright 2024.
+
+[#schema,admstype=Asset]
+== Schema
+
+
+include::schema:partial$index.adoc[leveloffset-=1]

@@ -4,7 +4,7 @@ module.exports.register = function () {
       for (const origin of origins) {
         if (origin.descriptor.ext?.collection === undefined) continue
 
-        let collector
+        let collector = {}
         const outDir = `${playbook.env.PWD}/output/artifacts`
         const scriptsDir = `${playbook.env.PWD}/scripts`
 

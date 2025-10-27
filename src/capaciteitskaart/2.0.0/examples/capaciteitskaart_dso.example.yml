@@ -1,0 +1,66 @@
+identifier: '3238ebd8-ebe5-4593-83d8-7f3a25bafcff'
+conforms_to: http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart
+contact_point: 'ritger.teunissen@alliander.com'
+version: 2.0.0
+valid:
+  end: '2025-01-21'
+  start: '2025-12-21'
+updated:
+  - date: '2025-01-10'
+    type: KI
+  - date: '2025-01-10'
+    type: ATC
+  - date: '2025-01-10'
+    type: BTC
+  - date: '2025-01-10'
+    type: WR
+  - date: '2025-01-10'
+    type: NU
+  - date: '2025-01-10'
+    type: JC
+geographical_regions:
+  - description: 'Netherlands'
+    regions:
+      - description: 'Liander'
+        energy_areas:
+          - short_code: 'os fictief 20-3i'
+            demand_alleviation_year: 2
+            demand_energy_area_short_code: ''
+            generation_alleviation_year: 2
+            generation_energy_area_short_code: ''
+            works:
+              - project_name: 'WO#_1234_Verzwaring_Pieterslaan'
+                time_schedules:
+                  - schedule_interval:
+                      end: '2026-01-10'
+                description: 'Uitbreiding netstation Pieterslaan'
+              - project_name: 'WO#_4321_Vervanging_Transformator'
+                time_schedules:
+                  - schedule_interval:
+                      quarter: 3
+                      year: 2026
+                description: 'Vervanging transformator'
+            area_capacity:
+              - capacity_interval:
+                  year: 2025
+                demand_available_capacity: 47
+                demand_capacity_in_queue: 3
+                demand_quoted_capacity: 58
+                demand_requests_in_queue: 15
+                generation_available_capacity: 47
+                generation_capacity_in_queue: 0
+                generation_quoted_capacity: 38
+                generation_requests_in_queue: 0
+            postcode_areas:
+              - demand_constraint: 'amber'
+                generation_constraint: 'transparant'
+                postcode: '1234AC'
+                substation_short_code: 'OS FICTIEF1'
+              - demand_constraint: 'red'
+                generation_constraint: 'red'
+                postcode: '1234AD'
+                substation_short_code: 'OS FICTIEF1'
+              - demand_constraint: 'yellow'
+                generation_constraint: 'transparant'
+                postcode: '1234AE'
+                substation_short_code: 'OS FICTIEF1'

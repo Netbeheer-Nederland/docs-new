@@ -5,11 +5,11 @@ requires-python = ">=3.12,<4.0"
 dependencies = [
     "linkml >= 1.8.4, < 2.0",
     "linkml-runtime >= 1.8.1, < 1.9",
-    "linkml-asciidoc-generator @ git+https://github.com/Netbeheer-Nederland/linkml-asciidoc-generator.git@v0.5.0",
-    #"linkml-asciidoc-generator",
+    #"linkml-asciidoc-generator @ git+https://github.com/Netbeheer-Nederland/linkml-asciidoc-generator.git@v0.5.0",
+    "linkml-asciidoc-generator",
     "gen-linkml-profile @ git+https://github.com/Netbeheer-Nederland/gen-linkml-profile.git",
     "check-jsonschema (>=0.31.0,<0.32.0)",
 ]
 
-#[tool.uv.sources]
-#linkml-asciidoc-generator = { path = "../linkml-asciidoc-generator", editable = true }
+[tool.uv.sources]
+linkml-asciidoc-generator = { path = "../linkml-asciidoc-generator", editable = true }
