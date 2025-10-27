@@ -1,4 +1,5 @@
 = Capaciteitskaart
+:notoc:
 :page-link-alt-jsonld: https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/index.jsonld
 
 [horizontal]
@@ -7,7 +8,7 @@ Thema:: https://modellen.netbeheernederland.nl/adms-ap-nbnl/theme#CIMDataproduct
 Laatst gewijzigd::
   2025-10-16 12:51
 
-Schema file:: +
+Schema file::
 [unstyled]
 * [[schema-linkml-yaml]] {site-url}/capaciteitskaart/2.0.0/schema/linkml.yml[Schema] (https://modellen.netbeheernederland.nl/adms-ap-nbnl/representationTechnique#linkml[LinkML]; http://publications.europa.eu/resource/authority/file-type/YAML[YAML])
 
@@ -188,7 +189,6 @@ Information Model`, which itself is published under the `Open Government
 License`, under ©Crown copyright 2024.
 
 [#schema,admstype=Asset]
-== Schema
+== Index
 
-
-include::schema:partial$index.adoc[leveloffset-=1]
+include::schema:partial$index.adoc[]

@@ -1,5 +1,5 @@
-* xref:schema::index.adoc[Schema]
+* Schema
 
-include::schema:partial$nav.adoc[leveloffset+=1]
+include::schema:partial$nav.adoc[]
 
 * xref::examples.adoc[Examples]
