@@ -1,5 +1,5 @@
 name: ROOT
-title: NBNL - Modellen
+title: NBNL Modellen
 version: ~
 nav:
 - modules/ROOT/nav.adoc
