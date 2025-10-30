@@ -6,7 +6,7 @@ content:
     - url: .
       start_paths: [src/*/*]
     - url: https://github.com/netbeheer-nederland/uri-policy
-      branhces: [v*]
+      branches: [v*]
     - url: https://github.com/Netbeheer-Nederland/dp-meetdata
       branches: [docs*, docs]
       start_paths: [v*]
