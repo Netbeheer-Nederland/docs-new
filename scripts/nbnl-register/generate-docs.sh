@@ -21,15 +21,17 @@ function generate_antora_component_version {
     mv $OUT/$NAME.linkml.yml $OUT/modules/ROOT/attachments/
     mv $OUT/$NAME.drawio.svg $OUT/modules/ROOT/images/
 
-    # Create component version nav file
-    # echo 'include::conceptuele-informatiemodellen::partial$nav.adoc[]' > "artifacts/documentation/$model/$version/modules/ROOT/nav.adoc"
-
     # Generate AsciiDoc
     uv run linkml generate doc \
         --template-directory $TEMPLATES_DIR \
         -d $OUT/modules/ROOT/pages \
         $SRC/$NAME.linkml.yml
     echo
+
+    # Create and register component version nav file
+    echo 'include::ROOT::partial$nav.adoc[]' > $OUT/modules/ROOT/nav.adoc
+    echo -e "nav:\n  - modules/ROOT/nav.adoc" >> $OUT/antora.yml
+
     echo Renaming \`index.md\` to \`index.adoc\`…
     mv $OUT/modules/ROOT/pages/index.md $OUT/modules/ROOT/pages/index.adoc
     echo
