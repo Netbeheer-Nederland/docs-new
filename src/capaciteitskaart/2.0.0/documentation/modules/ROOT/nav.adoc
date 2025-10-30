@@ -1,5 +1,0 @@
-* Schema
-
-include::schema:partial$nav.adoc[]
-
-* xref::examples.adoc[Examples]

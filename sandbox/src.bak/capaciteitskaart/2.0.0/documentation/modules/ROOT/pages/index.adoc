@@ -1,57 +1,16 @@
 = Capaciteitskaart
+:notoc:
 :page-link-alt-jsonld: https://modellen.netbeheernederland.nl/capaciteitskaart/2.0.0/index.jsonld
 
-////
-[cols="h,3"]
-|===
-
-| Versie
-| {page-component-version}
-
-| Assettype
-| https://modellen.netbeheernederland.nl/adms-ap-nbnl/assetType#[Toepassingsprofiel]
-
-| Thema
-a|
-* https://modellen.netbeheernederland.nl/adms-ap-nbnl/theme#Dataproduct[NBNL-dataproduct]
-* https://cbs.nl/sbi/12[SBI-code: 1.2 Je Moeder]
-
-| Taal
-| Nederlands
-
-| Uitgever
-| Netbeheer Nederland
-
-| Status
-| http://purl.org/adms/status/UnderDevelopment[In ontwikkeling]
-
-| Laatst gewijzigd
-| 2025-10-16 12:51
-
-|===
-////
-
-Versie::
-  {page-component-version}
-
-Assettype::
-  https://modellen.netbeheernederland.nl/adms-ap-nbnl/assetType#[Toepassingsprofiel]
-
-Thema::
-* https://modellen.netbeheernederland.nl/adms-ap-nbnl/theme#Dataproduct[NBNL-dataproduct]
-* https://cbs.nl/sbi/12[SBI-code: 1.2 Je Moeder]
-
-Taal::
-  Nederlands
-
-Uitgever::
-  Netbeheer Nederland
-
-Status::
-  http://purl.org/adms/status/UnderDevelopment[In ontwikkeling]
+[horizontal]
+Thema:: https://modellen.netbeheernederland.nl/adms-ap-nbnl/theme#CIMDataproduct[CIM-dataproduct]
 
 Laatst gewijzigd::
   2025-10-16 12:51
+
+Schema file::
+[unstyled]
+* [[schema-linkml-yaml]] {site-url}/capaciteitskaart/2.0.0/schema/linkml.yml[Schema] (https://modellen.netbeheernederland.nl/adms-ap-nbnl/representationTechnique#linkml[LinkML]; http://publications.europa.eu/resource/authority/file-type/YAML[YAML])
 
 '''
 
@@ -230,10 +189,6 @@ Information Model`, which itself is published under the `Open Government
 License`, under ©Crown copyright 2024.
 
 [#schema,admstype=Asset]
-== Schema
+== Index
 
-.Distributions
-[no-bullet,admstype=AssetDistribution]
-* [[schema-linkml-yaml]] {site-url}/capaciteitskaart/2.0.0/schema/linkml.yml[Schema] (https://modellen.netbeheernederland.nl/adms-ap-nbnl/representationTechnique#linkml[LinkML]; http://publications.europa.eu/resource/authority/file-type/YAML[YAML])
-
-include::schema:partial$index.adoc[leveloffset-=1]
+include::schema:partial$index.adoc[]
