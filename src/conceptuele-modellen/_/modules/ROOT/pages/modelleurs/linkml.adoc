@@ -8,7 +8,7 @@ YAML-formaat. Het lijkt qua vorm op JSON Schema, maar is gericht op
 semantische duidelijkheid, herbruikbaarheid en documentatie van
 concepten.
 
-Wij gebruiken LinkML om onze domeinmodellen expliciet,
+Wij gebruiken LinkML om onze conceptuele modellen expliciet,
 formeel en machineleesbaar vast te leggen, zónder te vervallen in
 database- of API-techniek. Daarmee kunnen we:
 

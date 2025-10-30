@@ -1,13 +1,13 @@
-= Domeinmodellen
+= Conceptuele modellen
 
 include::partial$under_construction.adoc[]
 
 Bij Netbeheer Nederland zorgen wij ervoor dat onze data **helder en herbruikbaar** zijn. Dat doen we door de betekenis ervan eenduidig vast te leggen:
 
-1. In een **domeinmodel**: een overzicht van begrippen en hoe ze samenhangen, per register of datadienst
+1. In een **conceptueel model**: een overzicht van begrippen en hoe ze samenhangen, per register of datadienst
 2. In een **begrippenkader**: een verzameling van algemene definities voor samenhang tussen de modellen
 
-Een domeinmodel helpt mensen met verschillende achtergronden, van domeinexperts tot systeemontwerpers, om een gedeeld beeld te krijgen van hoe iets werkt.
+Een conceptueel model helpt mensen met verschillende achtergronden, van domeinexperts tot systeemontwerpers, om een gedeeld beeld te krijgen van hoe iets werkt.
 
 De modellen kunnen er technisch uitzien, maar zijn bedoeld voor een breed publiek: xref::wegwijs.adoc[Wegwijs in de modellen].
 

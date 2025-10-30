@@ -2,7 +2,7 @@
 
 include::partial$under_construction.adoc[]
 
-De domeinmodellen op deze website gebruiken eenvoudige
+De conceptuele modellen op deze website gebruiken eenvoudige
 diagrammen om te laten zien _welke begrippen er zijn_ en _hoe die met
 elkaar samenhangen_. Hieronder leggen we de belangrijkste elementen uit.
 

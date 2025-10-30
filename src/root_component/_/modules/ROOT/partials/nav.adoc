@@ -18,7 +18,7 @@
 ** xref:dp-netburen::index.adoc[]
 ** xref:dp-stationsmeetdata::index.adoc[]
 ** xref:dp-transitietechnieken::index.adoc[]
-* xref:domeinmodellen::index.adoc[]
+* xref:conceptuele-modellen::index.adoc[]
 * NBNL Profile Group
 ** xref:im-object::object_register.adoc[]
 ** xref:im-nbnl-equipment::index.adoc[]

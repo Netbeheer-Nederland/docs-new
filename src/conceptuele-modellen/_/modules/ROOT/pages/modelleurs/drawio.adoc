@@ -2,11 +2,11 @@
 
 include::partial$under_construction.adoc[]
 
-Voor het tekenen van domeinmodellen gebruiken we
+Voor het tekenen van conceptuele modellen gebruiken we
 https://www.drawio.com/[draw.io]. Deze tool is gekozen omdat ze vrij
 beschikbaar is, makkelijk in gebruik, en goed samenwerkt met
 versiebeheer via GitHub. Draw.io ondersteunt de notatiestijl die wij
-hanteren voor domeinmodellen: entiteit-relatienotatie in
+hanteren voor conceptuele modellen: entiteit-relatienotatie in
 Barker-stijl.
 
 == Beginnen met draw.io
@@ -34,7 +34,7 @@ relaties. Waar draw.io Barker niet volledig ondersteunt, vallen we terug
 op elementen uit de
 https://medium.com/@ericgcc/dont-get-wrong-explained-guide-to-choosing-a-database-design-notation-for-erd-in-a-while-7747925a7531#918d[Information
 Engineering (IE) Notation], die visueel en inhoudelijk goed aansluit.
-Deze combinatie biedt voldoende expressiviteit voor domeinmodellen, zonder te vervallen in technische details.
+Deze combinatie biedt voldoende expressiviteit voor conceptuele modellen, zonder te vervallen in technische details.
 
 == Vormgeving
 
@@ -90,7 +90,7 @@ eigenschappen en relaties intuïtief.
 * Specialisaties zijn volledig en niet overlappend. Dus elke
 `+Meettransformator+` is óf een `+Spanningsmeettransformator+` óf een
 `+Stroommeettransformator+`. Merk op dat de notie van '`abstracte
-klasse`' (zonder instanties) niet kan bestaan in een domeinmodellen.
+klasse`' (zonder instanties) niet kan bestaan in een conceptuele modellen.
 * Een `+OF+`-boog geeft aan dat slechts één van de relaties geldt.
 * Een `+en/of+`-boog geeft aan dat minimaal één van de relaties geldt.
 * Bij een groot model worden '`submodules`' gekaderd.
@@ -103,4 +103,4 @@ klasse`' (zonder instanties) niet kan bestaan in een domeinmodellen.
 * `+/+` voor entiteiten, eigenschappen of relaties die logisch of
 computationeel afleidbaar zijn uit andere elementen in het model
 * `+⏲+` voor tijdslijnmarkeringen (zie link:modelleurs/tijdlijnen[Tijdlijnen in
-domeinmodellen])
+conceptuele modellen])
