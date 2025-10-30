@@ -4,9 +4,11 @@ site:
 content:
   sources:
     - url: .
-      start_paths: src/*/*
+      start_paths: [src/*/*]
+    - url: https://github.com/netbeheer-nederland/uri-policy
+      branhces: [v*]
     - url: https://github.com/Netbeheer-Nederland/dp-meetdata
-      branches: docs*
+      branches: [docs*, docs]
       start_paths: [v*]
     - url: https://github.com/Netbeheer-Nederland/dp-transitietechnieken
       branches: docs-dev
@@ -26,35 +28,26 @@ content:
     - url: https://github.com/Netbeheer-Nederland/dp-netbewust-laden
       branches: docs-dev
       start_paths: [v*]
-    - url: https://github.com/Netbeheer-Nederland/dp-nbnl-equipment
-      branches: docs-dev
-      start_paths: [v*]
+    #- url: https://github.com/Netbeheer-Nederland/dp-nbnl-equipment
+    #  branches: docs-dev
+    #  start_paths: [v*]
     - url: https://github.com/Netbeheer-Nederland/dp-buurtnet
       branches: docs-dev
       start_paths: [v*]
     - url: https://github.com/Netbeheer-Nederland/dp-stationsmeetdata
       branches: docs-dev
       start_paths: [v*]
-    - url: https://github.com/Netbeheer-Nederland/dp-dataproduct
-      branches: docs-dev
-      start_paths: [v*]
-    - url: https://github.com/Netbeheer-Nederland/im-archimate-metamodel
-      branches: docs-dev
-      start_paths: [v*]
-    - url: https://github.com/Netbeheer-Nederland/im-nbnl-equipment
-      branches: docs-dev
-      start_paths: [v*]
-    - url: https://github.com/Netbeheer-Nederland/im-object
-      branches: docs-dev
-      start_paths: [v*]
-    - url: https://github.com/Netbeheer-Nederland/doc-modeling-guidelines
-      branches: [v*]
-    - url: https://github.com/Netbeheer-Nederland/uri-policy
-      branches: [v*]
-    - url: https://github.com/Netbeheer-Nederland/doc-design
-      branches: [v*]
-    - url: https://github.com/Netbeheer-Nederland/doc-team-semantiek
-      branches: main
+    #- url: https://github.com/Netbeheer-Nederland/im-nbnl-equipment
+    #  branches: docs-dev
+    #  start_paths: [v*]
+    #- url: https://github.com/Netbeheer-Nederland/im-object
+    #  branches: docs-dev
+    #  start_paths: [v*]
+    #- url: https://github.com/Netbeheer-Nederland/doc-modeling-guidelines
+    #  branches: [v*]
+    #- url: https://github.com/Netbeheer-Nederland/doc-team-semantiek
+    #  branches: main
+    #- url: ../capaciteitskaart
 asciidoc:
   attributes:
     page-pagination: ''
@@ -68,9 +61,6 @@ asciidoc:
 output:
   clean: true
   dir: output/docs
-urls:
-  latest_version_segment: ''
-  latest_version_segment_strategy: replace
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
