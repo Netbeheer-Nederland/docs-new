@@ -15,7 +15,11 @@ function generate_antora_component_version {
         $SRC/models/$NAME.linkml.yml \
         $OUT/modules/schema \
         --relations-diagrams
-    #echo '- modules/schema/nav.adoc' >> $OUT/antora.yml
+
+    # Create and register component version nav file
+    echo 'include::ROOT::partial$nav.adoc[]' > $OUT/modules/ROOT/nav.adoc
+    echo -e "nav:\n  - modules/ROOT/nav.adoc" >> $OUT/antora.yml
+
     echo
     cp $SRC/models/$NAME.linkml.yml $OUT/modules/schema/attachments/
     echo … OK.

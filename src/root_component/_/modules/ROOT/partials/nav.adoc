@@ -19,7 +19,15 @@
 *** xref:conceptuele-modellen::modelleurs/regelgeving.adoc[]
 * Datamodellen
 ** Modellen
-*** Capaciteitskaart
+*** xref:dp-buurtnet::index.adoc[]
+*** xref:dp-capaciteitskaart::index.adoc[]
+*** xref:dp-capaciteitskaart-ls::index.adoc[]
+*** xref:dp-capaciteitskaart-groengas::index.adoc[]
+*** xref:dp-meetdata::index.adoc[]
+*** xref:dp-netbewust-laden::index.adoc[]
+*** xref:dp-netburen::index.adoc[]
+*** xref:dp-stationsmeetdata::index.adoc[]
+*** xref:dp-transitietechnieken::index.adoc[]
 ** Voor modelleurs
 *** LinkML-conventies
 *** NBNL CIM Profile Group
