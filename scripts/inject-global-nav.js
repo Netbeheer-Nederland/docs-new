@@ -53,6 +53,7 @@ try {
 doc.nav = [
   "modules/ROOT/nav.adoc"
 ]; // Replace or add 'nav'
+delete doc.version
 
 // --- 4. Write YAML file back to disk ---
 try {
