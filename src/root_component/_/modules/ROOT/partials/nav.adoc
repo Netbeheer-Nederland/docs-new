@@ -33,6 +33,7 @@
 *** LinkML-conventies
 *** NBNL CIM Profile Group
 **** About the profiles
+**** xref:doc-modeling-guidelines::index.adoc[]
 **** Profiles
 ***** xref:im-nbnl-equipment::index.adoc[]
 ***** xref:im-object::index.adoc[]
