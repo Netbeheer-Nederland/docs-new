@@ -1,1 +1,1 @@
-include::partial$nav.adoc[]
+include::ROOT::partial$nav.adoc[]

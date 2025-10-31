@@ -7,12 +7,12 @@ function generate_antora_component_version {
     echo Generating Antora component version…
     echo
 
-    mkdir -p $OUT
-    cp -r $SRC/documentation/* $OUT/
+    mv $OUT/documentation/* $OUT/
+    rmdir $OUT/documentation
 
     mkdir -p $OUT/modules/schema
     uv run python -m linkml_asciidoc_generator.main \
-        $SRC/models/$NAME.linkml.yml \
+        $OUT/models/$NAME.linkml.yml \
         $OUT/modules/schema \
         --relations-diagrams
 
@@ -21,7 +21,8 @@ function generate_antora_component_version {
     echo -e "nav:\n  - modules/ROOT/nav.adoc" >> $OUT/antora.yml
 
     echo
-    cp $SRC/models/$NAME.linkml.yml $OUT/modules/schema/attachments/
+    cp $OUT/models/$NAME.linkml.yml $OUT/modules/schema/attachments/
+
     echo … OK.
     echo
 }

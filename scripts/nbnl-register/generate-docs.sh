@@ -7,9 +7,6 @@ function generate_antora_component_version {
     echo Generating Antora component version…
     echo
 
-    mkdir -p $OUT
-    cp -r $SRC/* $OUT
-
     # Create ROOT module directories
     mkdir -p $OUT/modules/ROOT/attachments && touch $OUT/modules/ROOT/attachments/.gitkeep
     mkdir -p $OUT/modules/ROOT/examples && touch $OUT/modules/ROOT/examples/.gitkeep
@@ -17,16 +14,16 @@ function generate_antora_component_version {
     mkdir -p $OUT/modules/ROOT/pages && touch $OUT/modules/ROOT/pages/.gitkeep
     mkdir -p $OUT/modules/ROOT/partials && touch $OUT/modules/ROOT/partials/.gitkeep
 
-    # Copy model source files into module
-    mv $OUT/$NAME.linkml.yml $OUT/modules/ROOT/attachments/
-    mv $OUT/$NAME.drawio.svg $OUT/modules/ROOT/images/
-
     # Generate AsciiDoc
     uv run linkml generate doc \
         --template-directory $TEMPLATES_DIR \
         -d $OUT/modules/ROOT/pages \
-        $SRC/$NAME.linkml.yml
+        $OUT/$NAME.linkml.yml
     echo
+
+    # Move model source files into module
+    mv $OUT/$NAME.linkml.yml $OUT/modules/ROOT/attachments/
+    mv $OUT/$NAME.drawio.svg $OUT/modules/ROOT/images/
 
     # Create and register component version nav file
     echo 'include::ROOT::partial$nav.adoc[]' > $OUT/modules/ROOT/nav.adoc
