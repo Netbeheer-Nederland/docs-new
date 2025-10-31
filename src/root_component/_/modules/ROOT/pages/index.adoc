@@ -16,14 +16,14 @@ Om u snel op weg te helpen, hebben we de informatie gestructureerd voor onze bel
 == U bent
 
 ////
-<<_implementator,Implementator>>:: U bent *softwareontwikkelaar*, *IT-architect*, *data-engineer* of *data-scientist* en u implementeert softwareoplossingen zoals datadiensten of dashboards.
+<<_implementeerder,Implementeerder>>:: U bent *softwareontwikkelaar*, *IT-architect*, *data-engineer* of *data-scientist* en u implementeert softwareoplossingen zoals datadiensten of dashboards.
 
 <<_architect,Architect>>:: U bent *enterprise-architect*, *beleidsmaker*, *procesontwerper* of *informatiemanager* en u bent betrokken bij de inrichting van de informatievoorziening in de energiesector waarvoor u kaders en richtlijnen opstelt om consistente en eenduidige datamodellering over de domeinen heen mogelijk te maken.
 
 <<_innovator,Innovator>>:: U bent een *nieuwe partij* in de energiesector of u ontwikkelt een *nieuwe dienst* die data uit de sector nodig heeft.
 ////
 
-=== Implementator
+=== Implementeerder
 
 U bent de softwareontwikkelaar, IT-architect, data-analist of engineer die de data-uitwisseling in de praktijk brengt. Of u nu marktberichten voor de registers implementeert, een koppeling tussen netbeheerdersystemen bouwt, of een nieuw dataproduct voor de energietransitie technisch ontsluit; u vertaalt de modellen naar werkende code en systemen.
 
