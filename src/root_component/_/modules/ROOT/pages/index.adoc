@@ -1,5 +1,4 @@
 = NBNL Modellen
-:toc:
 
 Welkom op de centrale bron voor informatiemodellen in de Nederlandse energiesector. Deze website biedt de gestandaardiseerde blauwdrukken voor de informatie-uitwisseling die essentieel is voor een betrouwbare, efficiënte en toekomstbestendige energievoorziening.
 
