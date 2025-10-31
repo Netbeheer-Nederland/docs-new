@@ -7,8 +7,8 @@ Welkom op de centrale bron voor informatiemodellen in de Nederlandse energiesect
 De modellen op deze site beschrijven de data voor drie cruciale domeinen:
 
 1.  **Nationale energieregisters:** De systemen die marktprocessen faciliteren (zoals het Centraal Aansluitingenregister).
-2.  **Netbeheerder-uitwisselingen:** De data die netbeheerders onderling uitwisselen voor operationele processen (zoals informatie over netkoppelingen).
-3.  **Dataproducten:** Gestandaardiseerde datasets die inzicht geven in de energietransitie en worden ontsloten voor externe partijen.
+2.  **Dataproducten:** Gestandaardiseerde datasets die inzicht geven in de energietransitie en worden ontsloten voor externe partijen.
+3.  **Netbeheerder-uitwisselingen:** De data die netbeheerders onderling uitwisselen voor operationele processen (zoals informatie over netkoppelingen).
 
 Om u snel op weg te helpen, hebben we de informatie gestructureerd voor onze belangrijkste doelgroepen. Herken uzelf in een van de onderstaande profielen en ontdek waar u de informatie vindt die u zoekt.
 
