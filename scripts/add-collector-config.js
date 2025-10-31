@@ -61,7 +61,7 @@ module.exports.register = function () {
           collector.run = []
         }
         collector.run.push({
-          command: `$NODE ${scriptsDir}/legacy/inject-global-nav.js`,
+          command: `$NODE ${scriptsDir}/inject-global-nav.js`,
           env: [
             {
               'name': 'OUT',
