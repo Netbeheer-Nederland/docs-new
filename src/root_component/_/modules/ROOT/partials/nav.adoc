@@ -28,13 +28,15 @@
 *** xref:dp-netburen::index.adoc[]
 *** xref:dp-stationsmeetdata::index.adoc[]
 *** xref:dp-transitietechnieken::index.adoc[]
+*** xref:dp-nbnl-equipment::index.adoc[]
 ** Voor modelleurs
 *** LinkML-conventies
 *** NBNL CIM Profile Group
 **** About the profiles
 **** Profiles
-***** Core Equipment Profile
-*** Canonical CIM Documentation
+***** xref:im-nbnl-equipment::index.adoc[]
+***** xref:im-object::index.adoc[]
+*** https://netbeheer-nederland.github.io/docs/im-tc57cim/latest/index.html[Canonical CIM Documentation]
 * Achter de schermen
 ** CI/CD
 ** Antora-architectuur
