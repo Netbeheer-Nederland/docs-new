@@ -1,6 +1,9 @@
-= NBNL Modellen
+= Netbeheer Nederland Modellen
 
-Welkom op de centrale bron voor informatiemodellen in de Nederlandse energiesector. Deze website biedt de gestandaardiseerde blauwdrukken voor de informatie-uitwisseling die essentieel is voor een betrouwbare, efficiënte en toekomstbestendige energievoorziening.
+Welkom op de centrale bron voor informatiemodellen in de Nederlandse
+energiesector. Deze website biedt de gestandaardiseerde blauwdrukken voor de
+informatie-uitwisseling die essentieel is voor een betrouwbare, efficiënte en
+toekomstbestendige energievoorziening.
 
 '''
 
@@ -10,57 +13,78 @@ De modellen op deze site beschrijven de data voor drie cruciale domeinen:
 2.  **Dataproducten:** Gestandaardiseerde datasets die inzicht geven in de energietransitie en worden ontsloten voor externe partijen.
 3.  **Netbeheerder-uitwisselingen:** De data die netbeheerders onderling uitwisselen voor operationele processen (zoals informatie over netkoppelingen).
 
-Om u snel op weg te helpen, hebben we de informatie gestructureerd voor onze belangrijkste doelgroepen. Herken uzelf in een van de onderstaande profielen en ontdek waar u de informatie vindt die u zoekt.
+Om u snel op weg te helpen, hebben we de informatie gestructureerd voor onze
+belangrijkste doelgroepen. Herken uzelf in een van de onderstaande profielen en
+ontdek waar u de informatie vindt die u zoekt.
 
 == U bent
 
-////
-<<_implementeerder,Implementeerder>>:: U bent *softwareontwikkelaar*, *IT-architect*, *data-engineer* of *data-scientist* en u implementeert softwareoplossingen zoals datadiensten of dashboards.
-
-<<_architect,Architect>>:: U bent *enterprise-architect*, *beleidsmaker*, *procesontwerper* of *informatiemanager* en u bent betrokken bij de inrichting van de informatievoorziening in de energiesector waarvoor u kaders en richtlijnen opstelt om consistente en eenduidige datamodellering over de domeinen heen mogelijk te maken.
-
-<<_innovator,Innovator>>:: U bent een *nieuwe partij* in de energiesector of u ontwikkelt een *nieuwe dienst* die data uit de sector nodig heeft.
-////
-
 === Implementeerder
 
-U bent de softwareontwikkelaar, IT-architect, data-analist of engineer die de data-uitwisseling in de praktijk brengt. Of u nu marktberichten voor de registers implementeert, een koppeling tussen netbeheerdersystemen bouwt, of een nieuw dataproduct voor de energietransitie technisch ontsluit; u vertaalt de modellen naar werkende code en systemen.
+U bent de softwareontwikkelaar, IT-architect, data-analist of engineer die de
+data-uitwisseling in de praktijk brengt. Of u nu marktberichten voor de
+registers implementeert, een koppeling tussen netbeheerdersystemen bouwt, of
+een nieuw dataproduct voor de energietransitie technisch ontsluit; u vertaalt
+de modellen naar werkende code en systemen.
 
 ==== Wat u zoekt
-U heeft concrete, technische specificaties nodig. U wilt weten: welke velden bevat een bericht, wat zijn de datatypen, welke versies zijn er en welke technische standaarden (zoals CIM-profielen of LinkML) moeten we volgen?
+
+U heeft concrete, technische specificaties nodig. U wilt weten: welke velden
+bevat een bericht, wat zijn de datatypen, welke versies zijn er en welke
+technische standaarden (zoals CIM-profielen of LinkML) moeten we volgen?
 
 ==== Waar u het vindt
 
-Uw primaire startpunt is de sectie **`Datamodellen`**:
+Uw primaire startpunt is de sectie **`Dataproducten`**:
 
-*   Onder **`Datamodellen` → `Modellen`** vindt u de specifieke, versie-beheerde datamodellen, zoals `Leveranciersberichten` of de `Capaciteitskaart`.
-*   Onder **`Datamodellen` → `Voor modelleurs`** vindt u de technische conventies en profielen die essentieel zijn voor een correcte implementatie, zoals de `LinkML-conventies` en de `NBNL CIM Profile Group`.
+*   Onder **`Dataproducten` → `Modellen`** vindt u de specifieke, versie-beheerde datamodellen, zoals `Netbewust Laden` of de `Capaciteitskaart`.
+
+////
+*   Onder **`Dataproducten` → `Voor modelleurs`** vindt u de technische conventies en profielen die essentieel zijn voor een correcte implementatie, zoals de `LinkML-conventies` en de `NBNL CIM Profile Group`.
+////
 
 === Architect
 
-U bent de enterprise-architect, beleidsmaker, procesontwerper of informatiemanager die het grotere geheel bewaakt. U bent betrokken bij de inrichting van de informatievoorziening in de energiesector en stelt de kaders en principes op voor datamodellering. U zorgt voor consistentie en eenheid over de verschillende domeinen heen.
+U bent de enterprise-architect, beleidsmaker, procesontwerper of
+informatiemanager die het grotere geheel bewaakt. U bent betrokken bij de
+inrichting van de informatievoorziening in de energiesector en stelt de kaders
+en principes op voor datamodellering. U zorgt voor consistentie en eenheid over
+de verschillende domeinen heen.
 
 ==== Wat u zoekt
-U zoekt het 'grote plaatje', de samenhang tussen processen, de principes achter de modellen en de eenduidige definities van begrippen. U wilt de "waarom" en "wat" begrijpen, voordat er wordt ingezoomd op het "hoe".
+
+U zoekt het 'grote plaatje', de samenhang tussen processen, de principes achter
+de modellen en de eenduidige definities van begrippen. U wilt de "waarom" en
+"wat" begrijpen, voordat er wordt ingezoomd op het "hoe".
 
 ==== Waar u het vindt
-Uw domein bevindt zich voornamelijk op conceptueel niveau:
+
+Uw domein bevindt zich voornamelijk op het vormen van betekenis:
 
 *   Het **`Begrippenkader`** is uw woordenboek voor een gedeelde taal.
-*   Onder **`Conceptuele modellen`** vindt u de **`Stelselplaat`** voor het complete overzicht en de specifieke modellen die de businessprocessen beschrijven.
-*   De sectie **`Conceptuele modellen` → `Voor modelleurs`** bevat de methodologie: `Naamgevingsconventies`, `Proces`, `Standaarden` en `Wet- en regelgeving`.
+*   De sectie **`Nationale Energieregisters` → `Voor modelleurs`** bevat de methodologie: `Naamgevingsconventies`, `Proces`, `Standaarden` en `Wet- en regelgeving`.
+
+////
+*   Onder **`Nationale Energieregisters`** vindt u de **`Stelselplaat`** voor het complete overzicht en de specifieke modellen die de businessprocessen beschrijven.
+////
 
 === Innovator
 
-U bent een nieuwe partij in de energiesector of u ontwikkelt een nieuwe dienst die data uit de sector nodig heeft. Denk aan een aggregator, een onderzoeksbureau dat data over netcongestie analyseert, of een softwareleverancier die een applicatie bouwt op basis van openbare energiedata.
+U bent een nieuwe partij in de energiesector of u ontwikkelt een nieuwe dienst
+die data uit de sector nodig heeft. Denk aan een aggregator, een
+onderzoeksbureau dat data over netcongestie analyseert, of een
+softwareleverancier die een applicatie bouwt op basis van openbare energiedata.
 
 ==== Wat u zoekt
-U zoekt een startpunt om de informatiestromen in de energiemarkt te begrijpen. Hoe werkt de data-uitwisseling? Welke data is beschikbaar en wat zijn de spelregels om hierop aan te sluiten?
+
+U zoekt een startpunt om de informatiestromen in de energiemarkt te begrijpen.
+Hoe werkt de data-uitwisseling? Welke data is beschikbaar en wat zijn de
+spelregels om hierop aan te sluiten?
 
 ==== Waar u het vindt
+
 Uw route door de site is een leertraject van abstract naar concreet:
 
 1.  **Start** bij het **`Begrippenkader`** om de terminologie te leren.
-2.  **Krijg overzicht** met de **`Stelselplaat`** onder **`Conceptuele modellen`**.
-3.  **Begrijp de processen** door de relevante **`Conceptuele modellen`** te bestuderen.
-4.  **Zoom in op de techniek** door de bijbehorende **`Datamodellen`** te raadplegen om de haalbaarheid van uw idee te toetsen.
+3.  **Begrijp de processen** door de relevante **`Nationale Energieregisters`** te bestuderen.
+4.  **Zoom in op de techniek** door de bijbehorende **`Dataproducten`** te raadplegen om de haalbaarheid van uw idee te toetsen.

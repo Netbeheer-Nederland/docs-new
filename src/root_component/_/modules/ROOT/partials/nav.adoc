@@ -1,45 +1,44 @@
+* Beleid
+** xref:uri-policy::index.adoc[]
+
 * https://begrippen.netbeheernederland.nl[Begrippenkader]
-* xref:conceptuele-modellen::index.adoc[]
-** Stelselplaat
-** Legenda
+
+* xref:conceptuele-modellen::index.adoc[Nationale Energieregisters]
 ** Modellen
 *** xref:aansluitingenregister::index.adoc[]
 *** xref:aangeslotenenregister::index.adoc[]
 *** xref:meetcomponentenregister::index.adoc[]
 *** xref:meetcomponentstandaardenregister::index.adoc[]
 *** xref:installatieregister::index.adoc[]
+
 ** xref:conceptuele-modellen::modelleurs/index.adoc[]
 *** Snel van start
-*** xref:conceptuele-modellen::modelleurs/naamgeving.adoc[]
-*** xref:conceptuele-modellen::modelleurs/definities.adoc[]
-*** xref:conceptuele-modellen::modelleurs/tijdlijnen.adoc[]
+**** xref:conceptuele-modellen::modelleurs/naamgeving.adoc[]
+**** xref:conceptuele-modellen::modelleurs/definities.adoc[]
+**** xref:conceptuele-modellen::modelleurs/tijdlijnen.adoc[]
+
 *** Proces
-*** xref:conceptuele-modellen::modelleurs/standaarden.adoc[]
-*** xref:conceptuele-modellen::modelleurs/verwante-methoden.adoc[]
-*** xref:conceptuele-modellen::modelleurs/regelgeving.adoc[]
-* Datamodellen
+**** xref:conceptuele-modellen::modelleurs/standaarden.adoc[]
+**** xref:conceptuele-modellen::modelleurs/verwante-methoden.adoc[]
+**** xref:conceptuele-modellen::modelleurs/regelgeving.adoc[]
+
+* Dataproducten
 ** Modellen
 *** xref:dp-buurtnet::index.adoc[]
-*** xref:dp-capaciteitskaart::index.adoc[]
 *** xref:dp-capaciteitskaart-ls::index.adoc[]
-*** xref:dp-capaciteitskaart-groengas::index.adoc[]
+*** xref:dp-capaciteitskaart::index.adoc[]
 *** xref:dp-meetdata::index.adoc[]
 *** xref:dp-netbewust-laden::index.adoc[]
 *** xref:dp-netburen::index.adoc[]
-*** xref:dp-stationsmeetdata::index.adoc[]
-*** xref:dp-transitietechnieken::index.adoc[]
+
+* NBNL Profile Group
+** xref:doc-modeling-guidelines::index.adoc[]
+** xref:im-object::object_register.adoc[]
+** Profiles
+*** xref:im-nbnl-equipment::index.adoc[]
+** Dataproducten
 *** xref:dp-nbnl-equipment::index.adoc[]
-** Voor modelleurs
-*** LinkML-conventies
-*** NBNL CIM Profile Group
-**** About the profiles
-**** xref:doc-modeling-guidelines::index.adoc[]
-**** Profiles
-***** xref:im-nbnl-equipment::index.adoc[]
-***** xref:im-object::index.adoc[]
-*** https://netbeheer-nederland.github.io/docs/im-tc57cim/latest/index.html[Canonical CIM Documentation]
-* Achter de schermen
-** CI/CD
-** Antora-architectuur
-** xref:uri-policy::index.adoc[]
-** Projectsoorten
+
+* Common Information Model
+** https://netbeheer-nederland.github.io/docs/im-tc57cim/latest/index.html[IEC TC57 CIM]
+** https://netbeheer-nederland.github.io/im-cgmes/[ENTSO-E CGMES]

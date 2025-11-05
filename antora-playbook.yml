@@ -22,9 +22,6 @@ content:
     - url: https://github.com/Netbeheer-Nederland/dp-capaciteitskaart-ls
       branches: docs-dev
       start_paths: [v*]
-    - url: https://github.com/Netbeheer-Nederland/dp-capaciteitskaart-groengas
-      branches: docs-dev
-      start_paths: [v*]
     - url: https://github.com/Netbeheer-Nederland/dp-netbewust-laden
       branches: docs-dev
       start_paths: [v*]
@@ -32,9 +29,6 @@ content:
       branches: docs-dev
       start_paths: [v*]
     - url: https://github.com/Netbeheer-Nederland/dp-buurtnet
-      branches: docs-dev
-      start_paths: [v*]
-    - url: https://github.com/Netbeheer-Nederland/dp-stationsmeetdata
       branches: docs-dev
       start_paths: [v*]
     - url: https://github.com/Netbeheer-Nederland/im-nbnl-equipment
