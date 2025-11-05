@@ -23,6 +23,13 @@
 **** xref:conceptuele-modellen::modelleurs/regelgeving.adoc[]
 
 * Dataproducten
+** Ontwerpdocumentatie
+*** xref:doc-design::buurtnet.adoc[]
+*** xref:doc-design::capaciteitskaart.adoc[]
+*** xref:doc-design::detectie.adoc[]
+*** xref:doc-design::meetdata.adoc[]
+*** xref:doc-design::netbewust-laden.adoc[]
+*** xref:doc-design::rijksinspectie-data-infrastructuur.adoc[]
 ** Modellen
 *** xref:dp-buurtnet::index.adoc[]
 *** xref:dp-capaciteitskaart-ls::index.adoc[]
@@ -33,10 +40,20 @@
 
 * NBNL Profile Group
 ** xref:doc-modeling-guidelines::index.adoc[]
+*** xref:doc-modeling-guidelines::background.adoc[]
+*** Patterns
+**** xref:doc-modeling-guidelines::topology.adoc[]
+**** xref:doc-modeling-guidelines::congestion.adoc[]
+**** xref:doc-modeling-guidelines::boundary_point.adoc[]
+**** xref:doc-modeling-guidelines::location.adoc[]
+**** xref:doc-modeling-guidelines::assets_work.adoc[]
+
+** Ontwerpdocumentatie
+*** xref:doc-design::netcode-h13.adoc[]
 ** xref:im-object::object_register.adoc[]
 ** Profiles
 *** xref:im-nbnl-equipment::index.adoc[]
-** Dataproducten
+** Data Products
 *** xref:dp-nbnl-equipment::index.adoc[]
 
 * Common Information Model

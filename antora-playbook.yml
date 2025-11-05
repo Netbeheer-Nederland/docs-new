@@ -37,6 +37,8 @@ content:
     - url: https://github.com/Netbeheer-Nederland/im-object
       branches: docs-dev
       start_paths: [v*]
+    - url: https://github.com/Netbeheer-Nederland/doc-design
+      branches: [v*]
     - url: https://github.com/Netbeheer-Nederland/doc-modeling-guidelines
       branches: [v*]
     #- url: https://github.com/Netbeheer-Nederland/doc-team-semantiek
