@@ -29,6 +29,7 @@
 *** xref:doc-design::detectie.adoc[]
 *** xref:doc-design::meetdata.adoc[]
 *** xref:doc-design::netbewust-laden.adoc[]
+*** xref:doc-design::netcode-h13.adoc[]
 *** xref:doc-design::rijksinspectie-data-infrastructuur.adoc[]
 ** Modellen
 *** xref:dp-buurtnet::index.adoc[]
@@ -48,8 +49,6 @@
 **** xref:doc-modeling-guidelines::location.adoc[]
 **** xref:doc-modeling-guidelines::assets_work.adoc[]
 
-** Ontwerpdocumentatie
-*** xref:doc-design::netcode-h13.adoc[]
 ** xref:im-object::object_register.adoc[]
 ** Profiles
 *** xref:im-nbnl-equipment::index.adoc[]
