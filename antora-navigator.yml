@@ -1,0 +1,10 @@
+subcomponents:
+- parent: dataproducten
+#  components: [component-a, component-b]
+groups:
+- root: true
+  title: Je Moeder
+  components: ROOT
+- title: Dataproducten
+  components: 'dp-*'
+output_file: site-navigation-data.js

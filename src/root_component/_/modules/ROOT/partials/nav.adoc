@@ -1,4 +1,4 @@
-* Beleid
+* Standaarden
 ** xref:uri-policy::index.adoc[]
 
 * https://begrippen.netbeheernederland.nl[Begrippenkader]
