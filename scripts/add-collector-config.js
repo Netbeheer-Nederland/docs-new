@@ -1,3 +1,17 @@
+function injectGlobalNavigation (collector, scriptsDir, outDir) {
+  if (!collector.run) collector.run = []
+  collector.run.push({
+    command: `$NODE ${scriptsDir}/inject-global-nav.js`,
+    env: [
+      {
+        'name': 'OUT',
+        'value': outDir
+      },
+    ]
+  })
+}
+
+
 module.exports.register = function () {
   this.once('contentAggregated', ({ contentAggregate, playbook }) => {
     const outDir = `${playbook.env.PWD}/output/artifacts`
@@ -41,34 +55,10 @@ module.exports.register = function () {
             ]
           })
         } else if (origin.descriptor.ext?.collection === "cim-dataproduct") {
-          collector.run.push({
-            command: `${scriptsDir}/cim-dataproduct/generate-docs.sh`,
-            env: [
-              {
-                'name': 'NAME',
-                'value': origin.descriptor.name
-              },
-              {
-                'name': 'OUT',
-                'value': outDir
-              }
-            ]
-          })
+            // ...
         }
 
-        // Inject global navigation.
-        if (!collector.run) {
-          collector.run = []
-        }
-        collector.run.push({
-          command: `$NODE ${scriptsDir}/inject-global-nav.js`,
-          env: [
-            {
-              'name': 'OUT',
-              'value': outDir
-            }
-          ]
-        })
+        injectGlobalNavigation(origin, scriptsDir, outDir)
 
         collector.scan = {
           clean: true,

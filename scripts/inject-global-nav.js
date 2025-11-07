@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
 /**
- * transform-yaml.js
- *
  * 1. Writes $OUT/modules/ROOT/nav.adoc with "include::ROOT::partial$nav.adoc[]"
  * 2. Reads and modifies $OUT/antora.yml:
  *    - Parses it as YAML
