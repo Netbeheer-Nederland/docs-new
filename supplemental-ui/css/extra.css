@@ -26,6 +26,18 @@ color-scheme: light;
 max-height: 100%;
 }
 
+.nav-symbol {
+    border: none;
+    outline: none;
+    line-height: inherit;
+    padding: 0;
+    position: absolute;
+    height: 1.35em;
+    width: 1.35em;
+    margin-top: -.05em;
+    margin-left: -1.35em;
+}
+
 @media screen and (min-width: 1024px) {
   /*
   .doc {

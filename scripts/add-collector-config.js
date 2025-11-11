@@ -56,20 +56,6 @@ module.exports.register = function () {
           })
         }
 
-        // Inject global navigation.
-        if (!collector.run) {
-          collector.run = []
-        }
-        collector.run.push({
-          command: `$NODE ${scriptsDir}/inject-global-nav.js`,
-          env: [
-            {
-              'name': 'OUT',
-              'value': outDir
-            }
-          ]
-        })
-
         collector.scan = {
           clean: true,
           dir: outDir
