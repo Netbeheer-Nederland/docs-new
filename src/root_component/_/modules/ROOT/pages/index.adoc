@@ -9,9 +9,9 @@ toekomstbestendige energievoorziening.
 
 De modellen op deze site beschrijven de data voor drie cruciale domeinen:
 
-1.  **Nationale energieregisters:** De systemen die marktprocessen faciliteren (zoals het Centraal Aansluitingenregister).
-2.  **Dataproducten:** Gestandaardiseerde datasets die inzicht geven in de energietransitie en worden ontsloten voor externe partijen.
-3.  **Netbeheerder-uitwisselingen:** De data die netbeheerders onderling uitwisselen voor operationele processen (zoals informatie over netkoppelingen).
+.  **Nationale energieregisters:** De systemen die marktprocessen faciliteren (zoals het Centraal Aansluitingenregister).
+.  **Dataproducten:** Gestandaardiseerde datasets die inzicht geven in de energietransitie en worden ontsloten voor externe partijen.
+.  **Netbeheerder-uitwisselingen:** De data die netbeheerders onderling uitwisselen voor operationele processen (zoals informatie over netkoppelingen).
 
 Om u snel op weg te helpen, hebben we de informatie gestructureerd voor onze
 belangrijkste doelgroepen. Herken uzelf in een van de onderstaande profielen en
@@ -85,6 +85,6 @@ spelregels om hierop aan te sluiten?
 
 Uw route door de site is een leertraject van abstract naar concreet:
 
-1.  **Start** bij het **`Begrippenkader`** om de terminologie te leren.
-3.  **Begrijp de processen** door de relevante **`Nationale Energieregisters`** te bestuderen.
-4.  **Zoom in op de techniek** door de bijbehorende **`Dataproducten`** te raadplegen om de haalbaarheid van uw idee te toetsen.
+.  **Start** bij het **`Begrippenkader`** om de terminologie te leren.
+.  **Begrijp de processen** door de relevante **`Nationale Energieregisters`** te bestuderen.
+.  **Zoom in op de techniek** door de bijbehorende **`Dataproducten`** te raadplegen om de haalbaarheid van uw idee te toetsen.

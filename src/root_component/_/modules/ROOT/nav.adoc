@@ -1,1 +1,11 @@
-include::ROOT::partial$nav.adoc[]
+* Standaarden
+** xref:uri-policy::index.adoc[]
+
+* https://begrippen.netbeheernederland.nl[Begrippenkader]
+* xref:nationale-energieregisters::index.adoc[Nationale energieregisters]
+* xref:dataproducten::index.adoc[Dataproducten]
+* xref:toepassingsprofielen::index.adoc[Toepassingsprofielen]
+
+* Common Information Model
+** https://netbeheer-nederland.github.io/docs/im-tc57cim/latest/index.html[IEC TC57 CIM]
+** https://netbeheer-nederland.github.io/im-cgmes/[ENTSO-E CGMES]
