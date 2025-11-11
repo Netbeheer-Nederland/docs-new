@@ -22,9 +22,9 @@ module.exports.register = function () {
           }]
         }
 
-        if (origin.descriptor.ext?.collection === "nbnl-register") {
+        if (origin.descriptor.ext?.collection === "nationaal-energieregister") {
           collector.run.push({
-            command: `${scriptsDir}/nbnl-register/generate-docs.sh`,
+            command: `${scriptsDir}/nationaal-energieregister/generate-docs.sh`,
             env: [
               {
                 'name': 'NAME',
@@ -36,7 +36,7 @@ module.exports.register = function () {
               },
               {
                 'name': 'TEMPLATES_DIR',
-                'value': `${scriptsDir}/nbnl-register/templates`
+                'value': `${scriptsDir}/nationaal-energieregister/templates`
               }
             ]
           })

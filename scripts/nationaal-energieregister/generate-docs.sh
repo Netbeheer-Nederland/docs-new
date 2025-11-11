@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-# Generate documentation for `nbnl-register`.
+# Generate documentation for `nationaal-energieregister`.
 
 
 function generate_antora_component_version {
