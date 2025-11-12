@@ -18,26 +18,21 @@ article.doc code {
 }
 
 img {
-max-height: 33vh;
-color-scheme: light;
+  max-height: 33vh;
+  color-scheme: light;
 }
 
 #conceptual-model.imageblock img {
-max-height: 100%;
+  max-height: 100%;
 }
 
-.nav-symbol {
-    border: none;
-    outline: none;
-    line-height: inherit;
-    padding: 0;
-    position: absolute;
-    height: 1.35em;
-    width: 1.35em;
-    margin-top: -.05em;
-    /* margin-left: -1.35em; */
-    margin-left: -1.0em;
+.nav-menu h3:nth-child(2) {
+  margin-bottom: 9px;
 }
+
+.nav-menu hr {
+  border: 0;
+  border-top: 1px solid #e1e1e1;
 
 @media screen and (min-width: 1024px) {
   /*
