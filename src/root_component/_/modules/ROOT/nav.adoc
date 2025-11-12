@@ -4,7 +4,7 @@
 * https://begrippen.netbeheernederland.nl[Begrippenkader]
 * xref:nationale-energieregisters::index.adoc[Nationale energieregisters]
 * xref:dataproducten::index.adoc[Dataproducten]
-* xref:toepassingsprofielen::index.adoc[Toepassingsprofielen]
+* xref:toepassingsprofielen::index.adoc[NBNL CIM Profile Group]
 
 * Common Information Model
 ** https://netbeheer-nederland.github.io/docs/im-tc57cim/latest/index.html[IEC TC57 CIM]
