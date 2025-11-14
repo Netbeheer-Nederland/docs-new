@@ -2,4 +2,4 @@ name: aansluitingenregister
 title: Aansluitingenregister
 version: '1.2'
 ext:
-  collection: nbnl-register
+  collection: nationaal-energieregister

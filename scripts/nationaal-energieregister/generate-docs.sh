@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-# Generate documentation for `nbnl-register`.
+# Generate documentation for `nationaal-energieregister`.
 
 
 function generate_antora_component_version {
@@ -26,7 +26,7 @@ function generate_antora_component_version {
     mv $OUT/$NAME.drawio.svg $OUT/modules/ROOT/images/
 
     # Create and register component version nav file
-    echo 'include::ROOT::partial$nav.adoc[]' > $OUT/modules/ROOT/nav.adoc
+    echo '' > $OUT/modules/ROOT/nav.adoc
     echo -e "nav:\n  - modules/ROOT/nav.adoc" >> $OUT/antora.yml
 
     echo Renaming \`index.md\` to \`index.adoc\`…

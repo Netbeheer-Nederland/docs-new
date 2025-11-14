@@ -1,10 +1,11 @@
-subcomponents:
-- parent: dataproducten
-#  components: [component-a, component-b]
+#subcomponents:
+#- parent: dataproducten
+#  components: [dp-meetdata]
+#- parent: nationale-energieregisters
+#  components: [aansluitingenregister]
 groups:
-- root: true
-  title: Je Moeder
-  components: ROOT
 - title: Dataproducten
   components: 'dp-*'
+- title: Nationale energieregisters
+  components: [aansluitingenregister, aangeslotenenregister, installatieregister, meetcomponentenregister, meetcomponentstandaardenregister]
 output_file: site-navigation-data.js

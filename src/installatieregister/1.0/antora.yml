@@ -2,4 +2,4 @@ name: installatieregister
 title: Installatieregister
 version: '1.0'
 ext:
-  collection: nbnl-register
+  collection: nationaal-energieregister

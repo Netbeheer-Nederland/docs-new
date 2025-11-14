@@ -1,0 +1,97 @@
+= Openstaande issues
+:author: Bart Kleijngeld
+
+== Eigenaarschap en verantwoordelijkheden
+
+=== Rollen
+
+* Product Owner
+* Software Developer
+* Data Architect
+* Solution Architect
+* Epic Owner
+* Modelleur
+* Business Architect
+
+
+=== Publicatieomgeving
+|===
+| Bart | Tom | Sefanja | Ritger | Arend | Robbert
+
+| R | I | C | C | C | C
+|===
+
+=== Publicaties van conceptuele modellen van registers
+|===
+| | Bart | Tom | Sefanja | Ritger
+
+| Eén publicatieomgeving voor zowel normatief als informatief
+
+|===
+
+.Publicaties van dataproduct-datamodellen
+|===
+| | Bart | Tom | Sefanja | Ritger
+
+| Eén publicatieomgeving voor zowel normatief als informatief
+
+|===
+
+
+
+== Publicatieomgeving
+
+=== Eén publicatieomgeving voor zowel normatief als informatief
+
+[cols="1,1"]
+|===
+| Voordelen | Nadelen
+
+| Geen verwarring mogelijk over de omgeving waarnaar je kijkt of moet kijken.
+| Risico dat minder duidelijk is welke publicaties normatief zijn en welke niet, of dat ten onrechte naar iets informatiefs wordt gekeken in de veronderstelling dat het normatief is.
+
+| Enkel één enkele plaats voor technisch onderhoud.
+
+| Groter risico op het creëren van een rommeltje, met name op het gebied van wat wel en niet getoond wordt (en waar) in het navigatiepaneel.
+
+| Geen lastige keuzes over in welke omgeving content thuis hoort, en complexe of vage migratiepaden om content van de een naar de andere omgeving te krijgen.
+
+|===
+
+Vo
+
+
+
+
+
+
+=== Uniforme presentatie voor alle modellen van één type
+
+=== Globaal navigatiepaneel
+
+
+
+
+== Werkwijze
+
+=== Technische toegankelijkheid van de werkwijze
+
+=== Bevriezen van versies versus eenvoudig aanpassingen maken
+
+=== Ieder project een repo of mag ook gekozen worden voor mappen
+
+=== Gebruik van uniforme ontwikkelomgeving(en)
+
+== Modelversionering
+
+=== SchemaVer vs SemVer vs REST-evolutie
+
+=== Versioneringsstrategie is afhankelijk van modeltype
+
+== Naamgeving en identificatie
+
+=== Geen typeduidende prefixen in modelnamen
+
+Denk aan `dp-` in bijv. een LinkML-schemanaam, een Antora component-naam of een GitHub-repositorynaam.
+
+=== URI's en URL's enkel maximaal een majorversie laten tonen
